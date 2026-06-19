@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BI Pipeline — EcoMetrics Egypt</title>
+  <meta name="description" content="A four-stage Business Intelligence pipeline: from raw data ingestion through Power Query transformation, star schema modeling, to Power BI visualization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-page="pipeline">
+
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><i data-lucide="leaf" style="width:24px;height:24px;color:var(--accent-teal);"></i><span class="navbar__logo-text"><span>EcoMetrics</span><span>Egypt</span></span></a>
+      <div class="navbar__links">
+        <a href="index.html" class="navbar__link">Home</a><a href="story.html" class="navbar__link">Story</a><a href="data.html" class="navbar__link">Data</a>
+        <a href="analysis.html" class="navbar__link">Analysis</a><a href="pipeline.html" class="navbar__link">Pipeline</a><a href="recommendations.html" class="navbar__link">Recommendations</a><a href="team.html" class="navbar__link">Team</a><a href="resources.html" class="navbar__link">Resources</a><a href="contact.html" class="navbar__link">Contact</a>
+        <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline btn-compact navbar__github">
+          <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+        </a>
+        <button class="theme-toggle" aria-label="Toggle dark/light theme">
+          <i data-lucide="sun" class="theme-toggle__sun" style="width:18px;height:18px;"></i>
+          <i data-lucide="moon" class="theme-toggle__moon" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle navigation"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+    </div>
+  </nav>
+  <div class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+    <a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div>
+        <span class="page-hero__label">TECHNICAL ARCHITECTURE</span>
+        <h1>From Raw Data to Actionable Intelligence</h1>
+        <p class="page-hero__subtitle">A four-stage Business Intelligence pipeline. Every step documented, reproducible, and auditable.</p>
+      </div>
+    </section>
+
+    <!-- Pipeline Flow -->
+    <section class="section">
+      <div class="container"        <div class="pipeline-flow">
+          <!-- Stage 01 -->
+          <div class="glass-card pipeline-stage reveal">
+            <div class="pipeline-stage__left">
+              <div class="pipeline-stage__number">01</div>
+              <i data-lucide="database" style="width:32px;height:32px;color:var(--accent-teal);"></i>
+            </div>
+            <div class="pipeline-stage__right">
+              <h3>Multi-Source Data Ingestion</h3>
+              <p class="pipeline-stage__subtitle">Data Acquisition</p>
+              <p>Data was identified and ingested from four source categories: operational facility records documenting collection volumes and timelines; sorting facility logs capturing material categorization outcomes and accuracy rates; processing stage records tracking throughput, downtime events, and recovery yields; and administrative datasets covering workforce allocation and logistics. Ingestion was performed via API connections and structured database queries, with integrity validation applied at point of entry.</p>
+              <div class="pipeline-tags">
+                <span class="pipeline-tag">API Connections</span>
+                <span class="pipeline-tag">Database Queries</span>
+                <span class="pipeline-tag">Integrity Validation</span>
+                <span class="pipeline-tag">Multi-Source</span>
+                <span class="pipeline-tag">Reproducible</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector reveal"><i data-lucide="chevron-down" style="width:24px;height:24px;"></i></div>
+
+          <!-- Stage 02 -->
+          <div class="glass-card pipeline-stage reveal">
+            <div class="pipeline-stage__left">
+              <div class="pipeline-stage__number pipeline-stage__number--gold">02</div>
+              <i data-lucide="settings-2" style="width:32px;height:32px;color:var(--accent-gold);"></i>
+            </div>
+            <div class="pipeline-stage__right">
+              <h3>Data Cleaning &amp; Feature Engineering</h3>
+              <p class="pipeline-stage__subtitle">Power Query Transformation</p>
+              <p>All transformation work was performed in Microsoft Power Query using its declarative M language, ensuring every step is auditable and reproducible. Operations included: removal of duplicates, standardization of categorical labels, median imputation of missing values, and UTC normalization of timestamps. Derived features were engineered: collection efficiency ratios, sorting accuracy percentages, and downtime duration aggregates.</p>
+              <div class="pipeline-tags">
+                <span class="pipeline-tag pipeline-tag--gold">Deduplication</span>
+                <span class="pipeline-tag pipeline-tag--gold">Median Imputation</span>
+                <span class="pipeline-tag pipeline-tag--gold">UTC Normalization</span>
+                <span class="pipeline-tag pipeline-tag--gold">Feature Engineering</span>
+                <span class="pipeline-tag pipeline-tag--gold">M Language</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector reveal"><i data-lucide="chevron-down" style="width:24px;height:24px;"></i></div>
+
+          <!-- Stage 03 -->
+          <div class="glass-card pipeline-stage reveal">
+            <div class="pipeline-stage__left">
+              <div class="pipeline-stage__number">03</div>
+              <i data-lucide="layout-grid" style="width:32px;height:32px;color:var(--accent-teal);"></i>
+            </div>
+            <div class="pipeline-stage__right">
+              <h3>Dimensional Data Architecture</h3>
+              <p class="pipeline-stage__subtitle">Star Schema Data Model</p>
+              <p>The analytical model uses a star schema: a central fact table (ProcessingEvents) capturing transactional records linked to five dimension tables. This design prioritizes query performance and analytical flexibility — enabling aggregation across time, facility, material, operator, and stage dimensions simultaneously.</p>
+              <!-- Interactive Star Schema Model Explorer -->
+              <div class="schema-explorer glass-card reveal" style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border-glow); background: var(--bg-primary);">
+                <h4 style="font-size: 0.95rem; text-align: center; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <i data-lucide="network" style="width: 18px; height: 18px; color: var(--accent-teal);"></i> 
+                  Interactive Data Schema Model Explorer
+                </h4>
+                
+                <div class="schema-canvas-wrapper" style="overflow-x: auto; display: flex; justify-content: center;">
+                  <svg class="schema-canvas" width="580" height="260" viewBox="0 0 580 260">
+                    <!-- Connectors -->
+                    <line class="schema-line" x1="150" y1="50" x2="220" y2="120" />
+                    <text class="schema-rel-text" x="160" y="65">1</text>
+                    <text class="schema-rel-text" x="210" y="112">*</text>
+
+                    <line class="schema-line" x1="150" y1="210" x2="220" y2="140" />
+                    <text class="schema-rel-text" x="160" y="195">1</text>
+                    <text class="schema-rel-text" x="210" y="148">*</text>
+
+                    <line class="schema-line" x1="430" y1="50" x2="360" y2="120" />
+                    <text class="schema-rel-text" x="420" y="65">1</text>
+                    <text class="schema-rel-text" x="370" y="112">*</text>
+
+                    <line class="schema-line" x1="430" y1="210" x2="360" y2="140" />
+                    <text class="schema-rel-text" x="420" y="195">1</text>
+                    <text class="schema-rel-text" x="370" y="148">*</text>
+
+                    <!-- Card nodes -->
+                    <!-- DimTime -->
+                    <g class="schema-node" id="node-time" data-name="DimTime" data-desc="Temporal dimension table containing calendar dates, week numbers, months, quarters, years, and seasonal operational categories." data-cols="TimeKey (PK) &#10;Date &#10;WeekNo &#10;MonthName &#10;Season">
+                      <rect class="node-rect" x="20" y="20" width="130" height="60" rx="6" />
+                      <text class="node-text-title" x="85" y="42">DimTime</text>
+                      <text class="node-text-sub" x="85" y="62">Dimension Table</text>
+                    </g>
+
+                    <!-- DimFacility -->
+                    <g class="schema-node" id="node-facility" data-name="DimFacility" data-desc="Geographic and physical attributes of the recycling facilities, including capacity metrics, target yields, and location indicators." data-cols="FacilityKey (PK) &#10;FacilityID &#10;Location &#10;Region &#10;DailyCapacityTons">
+                      <rect class="node-rect" x="20" y="180" width="130" height="60" rx="6" />
+                      <text class="node-text-title" x="85" y="202">DimFacility</text>
+                      <text class="node-text-sub" x="85" y="222">Dimension Table</text>
+                    </g>
+
+                    <!-- FactEvents (Center) -->
+                    <g class="schema-node schema-node--fact active" id="node-fact" data-name="ProcessingEvents" data-desc="Central fact table storing individual operational transaction records: processed waste weights, sorting contamination outcomes, and processing downtime logs." data-cols="EventKey (PK) &#10;TimeKey (FK) &#10;FacilityKey (FK) &#10;MaterialKey (FK) &#10;OperatorKey (FK) &#10;VolumeTons &#10;DowntimeHours &#10;ContaminationPct">
+                      <rect class="node-rect" x="220" y="100" width="140" height="60" rx="6" />
+                      <text class="node-text-title" x="290" y="122">ProcessingEvents</text>
+                      <text class="node-text-sub" x="290" y="142">Central Fact Table</text>
+                    </g>
+
+                    <!-- DimMaterial -->
+                    <g class="schema-node" id="node-material" data-name="DimMaterial" data-desc="Material categories catalog including raw MSW, plastics, organic fractions, paper/cardboard, glass, metal, and market pricing factors." data-cols="MaterialKey (PK) &#10;MaterialType &#10;Category &#10;BaseMarketValue">
+                      <rect class="node-rect" x="430" y="20" width="130" height="60" rx="6" />
+                      <text class="node-text-title" x="495" y="42">DimMaterial</text>
+                      <text class="node-text-sub" x="495" y="62">Dimension Table</text>
+                    </g>
+
+                    <!-- DimOperator -->
+                    <g class="schema-node" id="node-operator" data-name="DimOperator" data-desc="Workforce dimension logging operators, shifts, experience levels, and supervisor hierarchies." data-cols="OperatorKey (PK) &#10;OperatorID &#10;ShiftName &#10;ExperienceLevel">
+                      <rect class="node-rect" x="430" y="180" width="130" height="60" rx="6" />
+                      <text class="node-text-title" x="495" y="202">DimOperator</text>
+                      <text class="node-text-sub" x="495" y="222">Dimension Table</text>
+                    </g>
+                  </svg>
+                </div>
+
+                <!-- Details board -->
+                <div class="schema-details" id="schema-details-box" style="margin-top: 1rem; background: var(--bg-secondary); padding: 12px 18px; border-radius: 8px; border: 1px solid var(--border);">
+                  <div style="font-weight: 700; color: var(--accent-gold); font-size: 0.9rem;" id="schema-det-title">ProcessingEvents (Fact Table)</div>
+                  <div style="font-size: 0.82rem; color: var(--text-secondary); margin: 6px 0;" id="schema-det-desc">Central fact table storing individual operational transaction records: processed waste weights, sorting contamination outcomes, and processing downtime logs.</div>
+                  <div style="font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; color: var(--accent-teal); white-space: pre-line;" id="schema-det-cols">Fields: 
+                    EventKey (PK), TimeKey (FK), FacilityKey (FK), MaterialKey (FK), OperatorKey (FK), VolumeTons, DowntimeHours, ContaminationPct</div>
+                </div>
+              </div>
+              <div class="pipeline-tags">
+                <span class="pipeline-tag">Star Schema</span>
+                <span class="pipeline-tag">1 Fact Table</span>
+                <span class="pipeline-tag">5 Dimensions</span>
+                <span class="pipeline-tag">Power BI Model</span>
+                <span class="pipeline-tag">DAX Ready</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pipeline-connector reveal"><i data-lucide="chevron-down" style="width:24px;height:24px;"></i></div>
+
+          <!-- Stage 04 -->
+          <div class="glass-card pipeline-stage reveal">
+            <div class="pipeline-stage__left">
+              <div class="pipeline-stage__number pipeline-stage__number--gold">04</div>
+              <i data-lucide="bar-chart-2" style="width:32px;height:32px;color:var(--accent-gold);"></i>
+            </div>
+            <div class="pipeline-stage__right">
+              <h3>Interactive Dashboard Architecture</h3>
+              <p class="pipeline-stage__subtitle">Power BI Visualization</p>
+              <p>The visualization layer follows a structured data storytelling methodology. Three dashboard pages cover executive overview, operational detail, and individual performance tracking. Cross-page filtering via synchronized slicers allows analysts to isolate specific facilities, time periods, and material types. Drill-through provides granular diagnostic capability.</p>
+              <div class="pipeline-tags">
+                <span class="pipeline-tag pipeline-tag--gold">Power BI Desktop</span>
+                <span class="pipeline-tag pipeline-tag--gold">3 Dashboard Pages</span>
+                <span class="pipeline-tag pipeline-tag--gold">DAX Measures</span>
+                <span class="pipeline-tag pipeline-tag--gold">Cross-Page Filters</span>
+                <span class="pipeline-tag pipeline-tag--gold">Drill-Through</span>
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- DAX Measures -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Advanced DAX Measures</h2>
+          <p>A suite of DAX expressions was developed to compute the core KPIs and enable temporal comparisons.</p>
+        </div>
+        <!-- Interactive DAX Measure Library -->
+        <div class="dax-library glass-card reveal" style="padding: 2rem; background: var(--bg-card);">
+          <!-- Left: Tab Buttons -->
+          <div class="dax-menu">
+            <button class="dax-menu-btn active" data-dax-tab="coll">Collection Efficiency</button>
+            <button class="dax-menu-btn" data-dax-tab="sort">Sorting Multiplier</button>
+            <button class="dax-menu-btn" data-dax-tab="outlier">Outlier Detection</button>
+            <button class="dax-menu-btn" data-dax-tab="cumul">Cumulative Waste</button>
+            <button class="dax-menu-btn" data-dax-tab="mcode">Power Query M Script</button>
+          </div>
+
+          <!-- Right: Code Panel -->
+          <div class="dax-code-panel">
+            <div class="dax-code-header">
+              <span class="dax-code-title" id="dax-title">Collection Efficiency (%)</span>
+              <button class="dax-code-copy" onclick="copyDaxCode()">
+                <i data-lucide="copy" style="width:14px;height:14px;"></i> <span>Copy Code</span>
+              </button>
+            </div>
+            <code class="dax-code-body" id="dax-code">Collection Efficiency = 
+DIVIDE(
+    SUM(ProcessingEvents[VolumeTons]), 
+    CALCULATE(
+        SUM(DimFacility[DailyCapacityTons]), 
+        USERELATIONSHIP(ProcessingEvents[TimeKey], DimTime[TimeKey])
+    )
+)</code>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:3rem;">
+          <a href="resources.html" class="btn-primary"><i data-lucide="download" style="width:18px;height:18px;"></i> Download the .pbix file to explore all measures</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand"><div class="footer__brand-logo"><i data-lucide="leaf" style="width:20px;height:20px;color:var(--accent-teal);"></i><span><span style="color:var(--text-primary)">EcoMetrics</span> <span style="color:var(--accent-gold)">Egypt</span></span></div><p class="footer__tagline">Turning Waste Into Data. Data Into Action.</p></div>
+        <div><div class="footer__heading">Quick Links</div><div class="footer__links"><a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div></div>
+        <div><div class="footer__heading">Project</div><div class="footer__links"><a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank">GitHub Repository</a><a href="https://depi.gov.eg" target="_blank">DEPI Website</a><a href="https://mcit.gov.eg" target="_blank">Ministry of Communications</a></div></div>
+      </div>
+      <div class="footer__quote">"Data analytics transforms waste management from a reactive environmental concern into a proactive, evidence-based strategic asset — in support of Egypt Vision 2030."</div>
+      <div class="footer__copyright">© 2025 EcoMetrics Egypt Team · DEPI Data Analytics Capstone · Supervised by Eng. Mahmoud Seraj · Computik Learning Solutions</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    // ============================================
+    // Star Schema Explorer Logic
+    // ============================================
+    const schemaNodes = document.querySelectorAll('.schema-node');
+    const detTitle = document.getElementById('schema-det-title');
+    const detDesc = document.getElementById('schema-det-desc');
+    const detCols = document.getElementById('schema-det-cols');
+
+    schemaNodes.forEach(node => {
+      const showDetails = () => {
+        schemaNodes.forEach(n => n.classList.remove('active'));
+        node.classList.add('active');
+
+        const name = node.getAttribute('data-name');
+        const desc = node.getAttribute('data-desc');
+        const cols = node.getAttribute('data-cols');
+
+        detTitle.textContent = name + (name === 'ProcessingEvents' ? ' (Fact Table)' : ' (Dimension Table)');
+        detDesc.textContent = desc;
+        
+        // Clean columns display format
+        detCols.innerHTML = `<strong>Fields:</strong><br>${cols.replace(/\n/g, '<br>')}`;
+      };
+
+      node.addEventListener('mouseenter', showDetails);
+      node.addEventListener('click', showDetails);
+    });
+
+    // ============================================
+    // DAX & M Code Library Logic
+    // ============================================
+    const DAX_CODES = {
+      coll: {
+        title: "Collection Efficiency (%)",
+        code: `Collection Efficiency = 
+DIVIDE(
+    SUM(ProcessingEvents[VolumeTons]), 
+    CALCULATE(
+        SUM(DimFacility[DailyCapacityTons]), 
+        USERELATIONSHIP(ProcessingEvents[TimeKey], DimTime[TimeKey])
+    )
+)`
+      },
+      sort: {
+        title: "Sorting Impact Multiplier",
+        code: `Sorting Impact Multiplier = 
+COALESCE(
+    DIVIDE(
+        AVERAGE(ProcessingEvents[MarketableYieldRate]), 
+        AVERAGE(ProcessingEvents[SortingAccuracyRate])
+    ), 
+    2.3
+)`
+      },
+      outlier: {
+        title: "Outlier Facility Detection Flag",
+        code: `Is Outlier Facility = 
+VAR AvgRecovery = CALCULATE(AVERAGE(ProcessingEvents[RecoveryRate]), ALL(DimFacility))
+VAR StdDevRecovery = CALCULATE(STDEV.S(ProcessingEvents[RecoveryRate]), ALL(DimFacility))
+VAR CurrentRecovery = AVERAGE(ProcessingEvents[RecoveryRate])
+RETURN 
+IF(
+    ABS(CurrentRecovery - AvgRecovery) > (1.5 * StdDevRecovery),
+    "Outlier ⚠",
+    "Normal"
+)`
+      },
+      cumul: {
+        title: "Cumulative Waste Recovered",
+        code: `Cumulative Waste Recovered = 
+TOTALYTD(
+    SUM(ProcessingEvents[VolumeTons]), 
+    DimTime[Date]
+)`
+      },
+      mcode: {
+        title: "Power Query M Transformation Script",
+        code: `let
+    Source = Csv.Document(File.Contents("egypt_waste_observational_data_2021 to 2025 ..........csv"),[Delimiter=",", Columns=25, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllHeaders=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Total_MSW_Generated_Tons_Month", type number}, {"Recycling_Rate_Percentage", type number}, {"Population", Int64.Type}}),
+    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Total_MSW_Generated_Tons_Month] <> null)
+in
+    #"Filtered Rows"`
+      }
+    };
+
+    const daxBtns = document.querySelectorAll('.dax-menu-btn');
+    const daxTitle = document.getElementById('dax-title');
+    const daxCode = document.getElementById('dax-code');
+
+    daxBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        daxBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const key = btn.getAttribute('data-dax-tab');
+        const entry = DAX_CODES[key];
+        if (entry) {
+          daxTitle.textContent = entry.title;
+          daxCode.textContent = entry.code;
+        }
+      });
+    });
+
+    function copyDaxCode() {
+      const codeText = daxCode.textContent;
+      navigator.clipboard.writeText(codeText).then(() => {
+        const copyBtn = document.querySelector('.dax-code-copy span');
+        const copyIcon = document.querySelector('.dax-code-copy i');
+        if (copyBtn) {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => {
+            copyBtn.textContent = 'Copy Code';
+          }, 2000);
+        }
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+  </script>
+</body>
+</html>

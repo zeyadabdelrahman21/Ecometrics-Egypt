@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMetrics Egypt — Turning Waste Into Data. Data Into Action.</title>
+  <meta name="description" content="EcoMetrics Egypt: A data-driven BI framework analyzing waste recycling operations across Egypt. DEPI Data Analytics Capstone 2024-2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-page="home">
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__logo">
+        <i data-lucide="leaf" style="width:24px;height:24px;color:var(--accent-teal);"></i>
+        <span class="navbar__logo-text"><span>EcoMetrics</span><span>Egypt</span></span>
+      </a>
+      <div class="navbar__links">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="story.html" class="navbar__link">Story</a>
+        <a href="data.html" class="navbar__link">Data</a>
+        <a href="analysis.html" class="navbar__link">Analysis</a>
+        <a href="pipeline.html" class="navbar__link">Pipeline</a>
+        <a href="recommendations.html" class="navbar__link">Recommendations</a>
+        <a href="team.html" class="navbar__link">Team</a>
+        <a href="resources.html" class="navbar__link">Resources</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+        <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline btn-compact navbar__github">
+          <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+        </a>
+        <button class="theme-toggle" aria-label="Toggle dark/light theme">
+          <i data-lucide="sun" class="theme-toggle__sun" style="width:18px;height:18px;"></i>
+          <i data-lucide="moon" class="theme-toggle__moon" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle navigation">
+        <i data-lucide="menu" style="width:24px;height:24px;"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+    <a href="index.html">Home</a>
+    <a href="story.html">Story</a>
+    <a href="data.html">Data</a>
+    <a href="analysis.html">Analysis</a>
+    <a href="pipeline.html">Pipeline</a>
+    <a href="recommendations.html">Recommendations</a>
+    <a href="team.html">Team</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline btn-compact">
+      <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+    </a>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div id="tsparticles"></div>
+      <div class="hero__content">
+        <div class="hero__badge">DEPI Capstone · Data Analytics Track · 2024–2025</div>
+        <h1>
+          <span class="line">Transforming Egypt's</span>
+          <span class="line">Waste Into</span>
+          <span class="line">Insight.</span>
+        </h1>
+        <p class="hero__sub">A Business Intelligence framework diagnosing Egypt's recycling bottlenecks — from collection trucks to sorting conveyors — built to accelerate Vision 2030.</p>
+        <div class="hero__ctas">
+          <a href="data.html" class="btn-primary">
+            <i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i> Explore the Data
+          </a>
+          <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline">
+            <i data-lucide="github" style="width:18px;height:18px;"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+      <div class="hero__scroll" onclick="document.querySelector('.kpi-section').scrollIntoView({behavior:'smooth'})">
+        <div class="hero__scroll-line"></div>
+        <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+      </div>
+    </section>
+
+    <!-- KPI Stats Section -->
+    <section class="kpi-section">
+      <div class="container">
+        <div class="kpi-grid">
+          <div class="glass-card kpi-card reveal reveal--left" style="border-left: 3px solid var(--accent-warning);">
+            <div class="kpi-card__icon"><i data-lucide="trash-2" style="width:28px;height:28px;color:var(--accent-warning);"></i></div>
+            <div class="kpi-card__number" style="color: var(--accent-warning);" data-counter="100" data-suffix="M+">0</div>
+            <div class="kpi-card__label">ANNUAL WASTE GENERATED</div>
+            <div class="kpi-card__sub">Tons per year — one of the highest in MENA</div>
+          </div>
+          <div class="glass-card kpi-card reveal reveal--scale" style="border-left: 3px solid var(--accent-teal);">
+            <div class="kpi-card__icon"><i data-lucide="refresh-cw" style="width:28px;height:28px;color:var(--accent-teal);"></i></div>
+            <div class="kpi-card__number" style="color: var(--accent-teal);" data-counter="37" data-suffix="%">0</div>
+            <div class="kpi-card__label">CURRENT RECYCLING RATE</div>
+            <div class="kpi-card__sub">As of 2024 — up from 10% in 2018</div>
+          </div>
+          <div class="glass-card kpi-card reveal reveal--right" style="border-left: 3px solid var(--accent-gold);">
+            <div class="kpi-card__icon"><i data-lucide="target" style="width:28px;height:28px;color:var(--accent-gold);"></i></div>
+            <div class="kpi-card__number" style="color: var(--accent-gold);" data-counter="60" data-suffix="%">0</div>
+            <div class="kpi-card__label">EGYPT VISION 2030 TARGET</div>
+            <div class="kpi-card__sub">By 2027 — a 23-point gap that data can close</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="quick-nav">
+      <div class="container">
+        <div class="section-header">
+          <h2>Explore the Project</h2>
+        </div>
+        <div class="quick-nav__grid">
+          <a href="story.html" class="glass-card quick-nav__card reveal reveal--left">
+            <i data-lucide="book-open" style="width:32px;height:32px;color:var(--accent-teal);"></i>
+            <h3>Story</h3>
+            <p>The Problem We Solved</p>
+          </a>
+          <a href="data.html" class="glass-card quick-nav__card reveal reveal--scale">
+            <i data-lucide="bar-chart-2" style="width:32px;height:32px;color:var(--accent-gold);"></i>
+            <h3>Data</h3>
+            <p>Charts & Analytics</p>
+          </a>
+          <a href="pipeline.html" class="glass-card quick-nav__card reveal reveal--right">
+            <i data-lucide="workflow" style="width:32px;height:32px;color:var(--accent-teal);"></i>
+            <h3>Pipeline</h3>
+            <p>How We Built It</p>
+          </a>
+          <a href="recommendations.html" class="glass-card quick-nav__card reveal reveal--left">
+            <i data-lucide="lightbulb" style="width:32px;height:32px;color:var(--accent-gold);"></i>
+            <h3>Recommendations</h3>
+            <p>5 Strategic Actions</p>
+          </a>
+          <a href="team.html" class="glass-card quick-nav__card reveal reveal--scale">
+            <i data-lucide="users" style="width:32px;height:32px;color:var(--accent-teal);"></i>
+            <h3>Team</h3>
+            <p>Who Built This</p>
+          </a>
+          <a href="resources.html" class="glass-card quick-nav__card reveal reveal--right">
+            <i data-lucide="download" style="width:32px;height:32px;color:var(--accent-gold);"></i>
+            <h3>Resources</h3>
+            <p>Download Everything</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-logo">
+            <i data-lucide="leaf" style="width:20px;height:20px;color:var(--accent-teal);"></i>
+            <span><span style="color:var(--text-primary)">EcoMetrics</span> <span style="color:var(--accent-gold)">Egypt</span></span>
+          </div>
+          <p class="footer__tagline">Turning Waste Into Data. Data Into Action.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Quick Links</div>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="story.html">Story</a>
+            <a href="data.html">Data</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="pipeline.html">Pipeline</a>
+            <a href="recommendations.html">Recommendations</a>
+            <a href="team.html">Team</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__heading">Project</div>
+          <div class="footer__links">
+            <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank">GitHub Repository</a>
+            <a href="https://depi.gov.eg" target="_blank">DEPI Website</a>
+            <a href="https://mcit.gov.eg" target="_blank">Ministry of Communications</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__quote">
+        "Data analytics transforms waste management from a reactive environmental concern into a proactive, evidence-based strategic asset — in support of Egypt Vision 2030."
+      </div>
+      <div class="footer__copyright">
+        © 2025 EcoMetrics Egypt Team · DEPI Data Analytics Capstone · Supervised by Eng. Mahmoud Seraj · Computik Learning Solutions
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    // Init particles
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      particles: {
+        number: { value: 55 },
+        color: { value: ["#00E5CC", "#C9A84C"] },
+        size: { value: { min: 1.5, max: 3 }, random: true },
+        opacity: { value: { min: 0.2, max: 0.6 }, random: true },
+        move: { enable: true, speed: 0.4, direction: "none", random: true, outModes: "out" },
+        links: { enable: true, color: "#1E2E22", opacity: 0.3, distance: 130 }
+      },
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" } },
+        modes: { repulse: { distance: 100, speed: 0.5 } }
+      }
+    });
+
+    // Init counters
+    initCounters();
+  </script>
+</body>
+</html>

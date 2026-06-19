@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Deep-Dive & Analysis — EcoMetrics Egypt</title>
+  <meta name="description" content="In-depth analysis of the EcoMetrics Egypt Power BI dashboards: National Waste Performance, Investment Opportunities, and Research & Analytics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-page="analysis">
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__logo">
+        <i data-lucide="leaf" style="width:24px;height:24px;color:var(--accent-teal);"></i>
+        <span class="navbar__logo-text"><span>EcoMetrics</span><span>Egypt</span></span>
+      </a>
+      <div class="navbar__links">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="story.html" class="navbar__link">Story</a>
+        <a href="data.html" class="navbar__link">Data</a>
+        <a href="analysis.html" class="navbar__link">Analysis</a>
+        <a href="pipeline.html" class="navbar__link">Pipeline</a>
+        <a href="recommendations.html" class="navbar__link">Recommendations</a>
+        <a href="team.html" class="navbar__link">Team</a>
+        <a href="resources.html" class="navbar__link">Resources</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+        <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline btn-compact navbar__github">
+          <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+        </a>
+        <button class="theme-toggle" aria-label="Toggle dark/light theme">
+          <i data-lucide="sun" class="theme-toggle__sun" style="width:18px;height:18px;"></i>
+          <i data-lucide="moon" class="theme-toggle__moon" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle navigation"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+    </div>
+  </nav>
+  <div class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+    <a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div>
+        <span class="page-hero__label">DASHBOARD ANALYTICAL INTELLIGENCE</span>
+        <h1>Power BI Dashboard Deep-Dive</h1>
+        <p class="page-hero__subtitle">Examine the core analysis and actual data distributions behind the three main pages of our waste management framework.</p>
+      </div>
+    </section>
+
+    <!-- Tabs Selector -->
+    <section class="section">
+      <div class="container">
+        <div class="analysis-tabs">
+          <button class="tab-btn active" data-tab="national">Page 1: National Waste Performance</button>
+          <button class="tab-btn" data-tab="investment">Page 2: Investment Opportunities</button>
+          <button class="tab-btn" data-tab="research">Page 3: Research & Analytics</button>
+        </div>
+
+        <!-- TAB 1: NATIONAL WASTE PERFORMANCE -->
+        <div class="tab-content active" id="tab-national">
+          <!-- KPI Cards Row -->
+          <div class="kpi-row" style="margin-bottom: 3rem;">
+            <div class="glass-card kpi-badge reveal">
+              <i data-lucide="building-2" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-teal);">76.3k</div>
+              <div class="kpi-badge__title">Avg Governorate MSW</div>
+              <p class="kpi-badge__desc">Average Municipal Solid Waste generated per month in tons per governorate.</p>
+            </div>
+            <div class="glass-card kpi-badge reveal">
+              <i data-lucide="map-pin" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-gold);">Cairo</div>
+              <div class="kpi-badge__title">Highest MSW Producer</div>
+              <p class="kpi-badge__desc">Cairo Governorate generates the largest waste volume at 279.7k tons monthly.</p>
+            </div>
+            <div class="glass-card kpi-badge reveal">
+              <i data-lucide="pie-chart" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-teal);">55.8%</div>
+              <div class="kpi-badge__title">Organic Waste Fraction</div>
+              <p class="kpi-badge__desc">Organic matter remains the single largest constituent of municipal waste in Egypt.</p>
+            </div>
+            <div class="glass-card kpi-badge reveal">
+              <i data-lucide="gauge" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-gold);">15.96%</div>
+              <div class="kpi-badge__title">Mean Recycling Rate</div>
+              <p class="kpi-badge__desc">The historical baseline average recycling rate recorded in observational datasets.</p>
+            </div>
+          </div>
+
+          <!-- Content Grid -->
+          <div class="analysis-meta">
+            <!-- Left: SVG Map Explorer -->            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+              <div class="egypt-map-container reveal">
+                <h3 style="font-size: 1rem; width:100%; text-align:center;">Interactive Egypt Governorate Map</h3>
+                <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-bottom: 0.5rem;">Click any governorate to view its waste analytics</p>
+                <svg class="egypt-map" viewBox="0 0 500 580" style="margin-top:0.5rem;">
+                  <defs>
+                    <!-- Water pattern for Mediterranean & Red Sea -->
+                    <linearGradient id="seaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:rgba(0,60,80,0.3)"/>
+                      <stop offset="100%" style="stop-color:rgba(0,40,60,0.15)"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Mediterranean Sea background hint -->
+                  <rect x="0" y="0" width="500" height="55" fill="url(#seaGrad)" rx="4"/>
+                  <text x="120" y="30" fill="rgba(100,180,200,0.4)" font-size="11" font-family="Inter" font-style="italic">Mediterranean Sea</text>
+
+                  <!-- ============ WESTERN DESERT & MATROUH ============ -->
+                  <path class="map-region" id="gov-matrouh"
+                    d="M 5 55 L 130 55 L 125 100 L 90 140 L 45 200 L 5 260 Z"
+                    data-gov-name="Matrouh" data-waste="12.4k" data-rec="11.8" data-cov="32.5" data-region="Alexandria Region" data-pop="0.5M"
+                    style="fill:#2d6e4e"/>
+                  <text class="map-text" x="55" y="140">Matrouh</text>
+
+                  <!-- ============ ALEXANDRIA ============ -->
+                  <path class="map-region" id="gov-alex"
+                    d="M 130 55 L 190 55 L 185 78 L 165 95 L 125 100 Z"
+                    data-gov-name="Alexandria" data-waste="158.6k" data-rec="18.2" data-cov="51.0" data-region="Alexandria Region" data-pop="5.4M"
+                    style="fill:#1b5e3b"/>
+                  <text class="map-text" x="155" y="78">Alexandria</text>
+
+                  <!-- ============ BEHEIRA ============ -->
+                  <path class="map-region" id="gov-beheira"
+                    d="M 125 100 L 165 95 L 190 55 L 215 55 L 210 85 L 195 105 L 170 115 L 140 120 Z"
+                    data-gov-name="Beheira" data-waste="101.1k" data-rec="15.3" data-cov="48.2" data-region="Alexandria Region" data-pop="6.2M"
+                    style="fill:#2a6b4b"/>
+                  <text class="map-text" x="170" y="92">Beheira</text>
+
+                  <!-- ============ KAFR EL SHEIKH ============ -->
+                  <path class="map-region" id="gov-kafr"
+                    d="M 215 55 L 255 55 L 250 80 L 230 95 L 210 85 Z"
+                    data-gov-name="Kafr El Sheikh" data-waste="45.2k" data-rec="14.7" data-cov="33.1" data-region="Delta Region" data-pop="3.4M"
+                    style="fill:#3a7d5c"/>
+                  <text class="map-text" x="232" y="75">K.Sheikh</text>
+
+                  <!-- ============ GHARBIA ============ -->
+                  <path class="map-region" id="gov-gharbia"
+                    d="M 195 105 L 210 85 L 230 95 L 225 115 L 205 120 Z"
+                    data-gov-name="Gharbia" data-waste="80.0k" data-rec="16.1" data-cov="38.4" data-region="Delta Region" data-pop="5.1M"
+                    style="fill:#2e7050"/>
+                  <text class="map-text" x="212" y="105">Gharbia</text>
+
+                  <!-- ============ DAMIETTA ============ -->
+                  <path class="map-region" id="gov-damietta"
+                    d="M 255 55 L 285 55 L 280 72 L 260 78 L 250 80 Z"
+                    data-gov-name="Damietta" data-waste="22.8k" data-rec="17.3" data-cov="55.2" data-region="Suez Canal Region" data-pop="1.5M"
+                    style="fill:#1f5f3e"/>
+                  <text class="map-text" x="266" y="68">Damietta</text>
+
+                  <!-- ============ DAKAHLIA ============ -->
+                  <path class="map-region" id="gov-dakahlia"
+                    d="M 250 80 L 260 78 L 280 72 L 290 85 L 280 110 L 255 115 L 225 115 L 230 95 Z"
+                    data-gov-name="Dakahlia" data-waste="105.6k" data-rec="16.4" data-cov="36.8" data-region="Delta Region" data-pop="6.5M"
+                    style="fill:#276745"/>
+                  <text class="map-text" x="255" y="98">Dakahlia</text>
+
+                  <!-- ============ MONUFIA ============ -->
+                  <path class="map-region" id="gov-monufia"
+                    d="M 170 115 L 195 105 L 205 120 L 200 135 L 175 130 Z"
+                    data-gov-name="Monufia" data-waste="69.4k" data-rec="15.8" data-cov="35.2" data-region="Delta Region" data-pop="4.3M"
+                    style="fill:#347554"/>
+                  <text class="map-text" x="187" y="122">Monufia</text>
+
+                  <!-- ============ QALYUBIA ============ -->
+                  <path class="map-region" id="gov-qalyubia"
+                    d="M 200 135 L 205 120 L 225 115 L 255 115 L 250 135 L 235 145 L 210 145 Z"
+                    data-gov-name="Qalyubia" data-waste="90.5k" data-rec="16.5" data-cov="62.8" data-region="Greater Cairo" data-pop="5.7M"
+                    style="fill:#245f3e"/>
+                  <text class="map-text" x="225" y="132">Qalyubia</text>
+
+                  <!-- ============ SHARQIA ============ -->
+                  <path class="map-region" id="gov-sharqia"
+                    d="M 280 110 L 290 85 L 310 80 L 320 100 L 310 130 L 285 145 L 250 135 L 255 115 Z"
+                    data-gov-name="Sharqia" data-waste="117.7k" data-rec="16.2" data-cov="35.6" data-region="Delta Region" data-pop="7.2M"
+                    style="fill:#2c6d4c"/>
+                  <text class="map-text" x="282" y="118">Sharqia</text>
+
+                  <!-- ============ PORT SAID ============ -->
+                  <path class="map-region" id="gov-portsaid"
+                    d="M 285 55 L 320 55 L 320 75 L 310 80 L 290 85 L 280 72 Z"
+                    data-gov-name="Port Said" data-waste="18.5k" data-rec="19.1" data-cov="72.3" data-region="Suez Canal Region" data-pop="0.8M"
+                    style="fill:#145535"/>
+                  <text class="map-text" x="300" y="70">P.Said</text>
+
+                  <!-- ============ ISMAILIA ============ -->
+                  <path class="map-region" id="gov-ismailia"
+                    d="M 310 130 L 320 100 L 345 110 L 340 145 L 320 155 Z"
+                    data-gov-name="Ismailia" data-waste="20.1k" data-rec="16.8" data-cov="58.4" data-region="Suez Canal Region" data-pop="1.3M"
+                    style="fill:#266543"/>
+                  <text class="map-text" x="328" y="132">Ismailia</text>
+
+                  <!-- ============ NORTH SINAI ============ -->
+                  <path class="map-region" id="gov-nsinai"
+                    d="M 320 55 L 490 55 L 460 130 L 400 145 L 345 110 L 320 100 L 320 75 Z"
+                    data-gov-name="North Sinai" data-waste="8.2k" data-rec="10.5" data-cov="28.3" data-region="Suez Canal Region" data-pop="0.5M"
+                    style="fill:#4a8e6c"/>
+                  <text class="map-text" x="395" y="100">N. Sinai</text>
+
+                  <!-- ============ CAIRO ============ -->
+                  <path class="map-region active" id="gov-cairo"
+                    d="M 210 145 L 235 145 L 250 135 L 285 145 L 275 165 L 250 175 L 225 175 L 205 165 Z"
+                    data-gov-name="Cairo" data-waste="279.8k" data-rec="17.8" data-cov="66.3" data-region="Greater Cairo" data-pop="10.1M"
+                    style="fill:#185a38"/>
+                  <text class="map-text" x="242" y="160">Cairo</text>
+
+                  <!-- ============ GIZA ============ -->
+                  <path class="map-region" id="gov-giza"
+                    d="M 140 120 L 170 115 L 175 130 L 200 135 L 210 145 L 205 165 L 195 185 L 175 195 L 140 210 L 90 200 L 90 140 Z"
+                    data-gov-name="Giza" data-waste="255.3k" data-rec="16.9" data-cov="64.2" data-region="Greater Cairo" data-pop="9.0M"
+                    style="fill:#1c5d3a"/>
+                  <text class="map-text" x="155" y="170">Giza</text>
+
+                  <!-- ============ SUEZ ============ -->
+                  <path class="map-region" id="gov-suez"
+                    d="M 285 145 L 310 130 L 320 155 L 340 145 L 345 170 L 310 185 L 285 180 L 275 165 Z"
+                    data-gov-name="Suez" data-waste="15.3k" data-rec="17.5" data-cov="62.1" data-region="Suez Canal Region" data-pop="0.7M"
+                    style="fill:#1e5e3c"/>
+                  <text class="map-text" x="310" y="165">Suez</text>
+
+                  <!-- ============ SOUTH SINAI ============ -->
+                  <path class="map-region" id="gov-ssinai"
+                    d="M 345 170 L 340 145 L 400 145 L 460 130 L 470 180 L 440 260 L 400 310 L 360 280 L 345 220 Z"
+                    data-gov-name="South Sinai" data-waste="3.5k" data-rec="9.2" data-cov="25.1" data-region="Suez Canal Region" data-pop="0.1M"
+                    style="fill:#5a9a78"/>
+                  <text class="map-text" x="410" y="210">S. Sinai</text>
+
+                  <!-- ============ FAIYUM ============ -->
+                  <path class="map-region" id="gov-fayoum"
+                    d="M 140 210 L 175 195 L 195 185 L 200 210 L 185 235 L 155 240 L 135 230 Z"
+                    data-gov-name="Faiyum" data-waste="52.8k" data-rec="14.3" data-cov="34.8" data-region="North Upper Egypt" data-pop="3.7M"
+                    style="fill:#3c8060"/>
+                  <text class="map-text" x="168" y="218">Faiyum</text>
+
+                  <!-- ============ BENI SUEF ============ -->
+                  <path class="map-region" id="gov-benisuef"
+                    d="M 135 230 L 155 240 L 185 235 L 195 260 L 180 280 L 150 275 L 130 260 Z"
+                    data-gov-name="Beni Suef" data-waste="48.6k" data-rec="13.8" data-cov="33.2" data-region="North Upper Egypt" data-pop="3.2M"
+                    style="fill:#408562"/>
+                  <text class="map-text" x="160" y="258">B.Suef</text>
+
+                  <!-- ============ RED SEA ============ -->
+                  <path class="map-region" id="gov-redsea"
+                    d="M 250 175 L 275 165 L 285 180 L 310 185 L 345 220 L 360 280 L 350 340 L 330 400 L 300 450 L 270 480 L 240 470 L 230 420 L 225 370 L 235 320 L 240 270 L 220 225 L 200 210 L 195 185 L 205 165 L 225 175 Z"
+                    data-gov-name="Red Sea" data-waste="6.8k" data-rec="10.1" data-cov="26.8" data-region="Suez Canal Region" data-pop="0.4M"
+                    style="fill:#4f956f"/>
+                  <text class="map-text" x="285" y="330">Red Sea</text>
+
+                  <!-- ============ NEW VALLEY ============ -->
+                  <path class="map-region" id="gov-newvalley"
+                    d="M 5 260 L 45 200 L 90 200 L 90 140 L 140 210 L 135 230 L 130 260 L 120 300 L 115 340 L 120 400 L 130 450 L 140 480 L 110 500 L 60 480 L 20 450 L 5 400 Z"
+                    data-gov-name="New Valley" data-waste="4.1k" data-rec="8.5" data-cov="22.7" data-region="Middle Upper Egypt" data-pop="0.3M"
+                    style="fill:#68a882"/>
+                  <text class="map-text" x="70" y="370">New Valley</text>
+
+                  <!-- ============ MINYA ============ -->
+                  <path class="map-region" id="gov-minya"
+                    d="M 130 260 L 150 275 L 180 280 L 195 300 L 190 330 L 170 340 L 145 335 L 120 300 Z"
+                    data-gov-name="Minya" data-waste="93.6k" data-rec="14.9" data-cov="36.5" data-region="North Upper Egypt" data-pop="5.8M"
+                    style="fill:#388058"/>
+                  <text class="map-text" x="158" y="305">Minya</text>
+
+                  <!-- ============ ASYUT ============ -->
+                  <path class="map-region" id="gov-asyut"
+                    d="M 120 300 L 145 335 L 170 340 L 190 330 L 200 360 L 185 380 L 160 385 L 130 375 L 115 340 Z"
+                    data-gov-name="Asyut" data-waste="73.9k" data-rec="15.4" data-cov="35.8" data-region="Middle Upper Egypt" data-pop="4.6M"
+                    style="fill:#327553"/>
+                  <text class="map-text" x="158" y="360">Asyut</text>
+
+                  <!-- ============ SOHAG ============ -->
+                  <path class="map-region" id="gov-sohag"
+                    d="M 115 340 L 130 375 L 160 385 L 185 380 L 200 360 L 210 395 L 195 420 L 170 425 L 140 420 L 120 400 Z"
+                    data-gov-name="Sohag" data-waste="83.0k" data-rec="15.2" data-cov="34.6" data-region="Middle Upper Egypt" data-pop="5.0M"
+                    style="fill:#357856"/>
+                  <text class="map-text" x="162" y="400">Sohag</text>
+
+                  <!-- ============ QENA ============ -->
+                  <path class="map-region" id="gov-qena"
+                    d="M 120 400 L 140 420 L 170 425 L 195 420 L 210 395 L 220 425 L 210 450 L 185 455 L 155 455 L 130 450 Z"
+                    data-gov-name="Qena" data-waste="51.3k" data-rec="14.1" data-cov="33.8" data-region="South Upper Egypt" data-pop="3.3M"
+                    style="fill:#3e8260"/>
+                  <text class="map-text" x="170" y="438">Qena</text>
+
+                  <!-- ============ LUXOR ============ -->
+                  <path class="map-region" id="gov-luxor"
+                    d="M 155 455 L 185 455 L 210 450 L 215 475 L 200 485 L 175 488 L 155 480 Z"
+                    data-gov-name="Luxor" data-waste="18.7k" data-rec="16.5" data-cov="42.3" data-region="South Upper Egypt" data-pop="1.3M"
+                    style="fill:#266443"/>
+                  <text class="map-text" x="183" y="472">Luxor</text>
+
+                  <!-- ============ ASWAN ============ -->
+                  <path class="map-region" id="gov-aswan"
+                    d="M 130 450 L 155 455 L 155 480 L 175 488 L 200 485 L 215 475 L 230 490 L 240 470 L 230 520 L 190 545 L 140 530 L 110 500 Z"
+                    data-gov-name="Aswan" data-waste="22.4k" data-rec="15.8" data-cov="38.5" data-region="South Upper Egypt" data-pop="1.6M"
+                    style="fill:#2f7250"/>
+                  <text class="map-text" x="175" y="510">Aswan</text>
+
+                  <!-- ===== Legend ===== -->
+                  <g transform="translate(15, 545)">
+                    <text x="0" y="0" fill="var(--text-muted)" font-size="8" font-family="JetBrains Mono" font-weight="600">RECYCLING RATE</text>
+                    <rect x="0" y="6" width="22" height="10" rx="2" fill="#68a882"/>
+                    <text x="24" y="14" fill="var(--text-muted)" font-size="7" font-family="Inter">Low (8-11%)</text>
+                    <rect x="85" y="6" width="22" height="10" rx="2" fill="#3a7d5c"/>
+                    <text x="109" y="14" fill="var(--text-muted)" font-size="7" font-family="Inter">Mid (12-16%)</text>
+                    <rect x="175" y="6" width="22" height="10" rx="2" fill="#185a38"/>
+                    <text x="199" y="14" fill="var(--text-muted)" font-size="7" font-family="Inter">High (17-19%)</text>
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Governorate details card -->
+              <div class="region-detail-card reveal">
+                <div class="region-detail-header">
+                  <span class="region-detail-title" id="md-title">Cairo</span>
+                  <span class="region-detail-badge" id="md-region-badge">Greater Cairo</span>
+                </div>
+                <div class="region-kpis" style="grid-template-columns: repeat(2, 1fr);">
+                  <div class="region-kpi">
+                    <div class="region-kpi__lbl">Monthly Waste</div>
+                    <div class="region-kpi__val" id="md-waste" style="color:var(--accent-warning);">279.8k tons</div>
+                  </div>
+                  <div class="region-kpi">
+                    <div class="region-kpi__lbl">Recycling Rate</div>
+                    <div class="region-kpi__val" id="md-rec" style="color:var(--accent-teal);">17.8%</div>
+                  </div>
+                  <div class="region-kpi">
+                    <div class="region-kpi__lbl">Coverage</div>
+                    <div class="region-kpi__val" id="md-cov">66.3%</div>
+                  </div>
+                  <div class="region-kpi">
+                    <div class="region-kpi__lbl">Population</div>
+                    <div class="region-kpi__val" id="md-pop" style="color:var(--accent-gold);">10.1M</div>
+                  </div>
+                </div>
+                <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
+                  <button class="btn-primary" onclick="triggerGovActionPlan()" style="padding: 6px 12px; font-size: 0.72rem; height: auto; flex:1;">
+                    <i data-lucide="bot" style="width:14px;height:14px;"></i> AI Action Plan
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Charts -->
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+              <div class="glass-card chart-card reveal">
+                <h3>Top 10 Governorates by Monthly MSW Generation</h3>
+                <p class="chart-card__subtitle">Aggregated mean municipal solid waste generation rate (Tons/Month)</p>
+                <div class="chart-container">
+                  <canvas id="govMswChart"></canvas>
+                </div>
+              </div>
+              <div class="glass-card chart-card reveal">
+                <h3>Municipal Solid Waste Composition</h3>
+                <p class="chart-card__subtitle">National average fractions based on observational waste studies</p>
+                <div class="chart-container" style="height: 280px;">
+                  <canvas id="compositionChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: INVESTMENT OPPORTUNITIES -->
+        <div class="tab-content" id="tab-investment">
+          <!-- KPI Cards Row -->
+          <div class="kpi-row" style="margin-bottom: 3rem;">
+            <div class="glass-card kpi-badge">
+              <i data-lucide="trending-up" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-teal);">66.3%</div>
+              <div class="kpi-badge__title">Cairo Coverage Peak</div>
+              <p class="kpi-badge__desc">Greater Cairo features the highest collection coverage rate in Egypt.</p>
+            </div>
+            <div class="glass-card kpi-badge">
+              <i data-lucide="shield-alert" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-gold);">36.0%</div>
+              <div class="kpi-badge__title">Lowest Regional Coverage</div>
+              <p class="kpi-badge__desc">The Delta Region exhibits the lowest waste collection coverage at 36.01%.</p>
+            </div>
+            <div class="glass-card kpi-badge">
+              <i data-lucide="package" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-teal);">12.9%</div>
+              <div class="kpi-badge__title">Plastic Fraction</div>
+              <p class="kpi-badge__desc">Plastics form the second-largest portion, presenting high-ROI sorting potential.</p>
+            </div>
+            <div class="glass-card kpi-badge">
+              <i data-lucide="coins" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-gold);">High</div>
+              <div class="kpi-badge__title">Investment Priority</div>
+              <p class="kpi-badge__desc">Assessing high-volume, low-coverage regions for commercial sorting plants.</p>
+            </div>
+          </div>
+
+          <!-- Content Grid -->
+          <div class="analysis-meta">
+            <!-- Left: Deep Explanation -->
+            <div class="glass-card">
+              <h3>Targeting Strategic Investments</h3>
+              <p style="margin-top: 1rem;">This dashboard sheet prioritizes commercial viability, focusing on where collection infrastructure and dry recyclable volumes overlap to maximize potential recycling ROI.</p>
+              
+              <h4 style="color: var(--accent-gold); margin: 1.5rem 0 0.5rem; font-weight: 600;">Key Investment Insights:</h4>
+              <ul class="download-card__features" style="margin-bottom: 0;">
+                <li><i data-lucide="check" style="color: var(--accent-gold); width: 16px;"></i> <strong>Dry Recyclable Volume:</strong> Cairo and Giza generate over 500k tons of waste combined monthly, making them the priority locations for modern material recovery facilities (MRFs).</li>
+                <li><i data-lucide="check" style="color: var(--accent-gold); width: 16px;"></i> <strong>Infrastructure Gap:</strong> Delta and Upper Egypt regions have huge generation volumes but suffer from low collection coverage (~36%). Investing in municipal collection networks here provides the largest social and environmental returns.</li>
+              </ul>
+            </div>
+
+            <!-- Right: Charts -->
+            <div class="glass-card chart-card">
+              <h3>Waste Collection Coverage by Region</h3>
+              <p class="chart-card__subtitle">Average collection coverage rate (%) across major Egyptian planning regions</p>
+              <div class="chart-container">
+                <canvas id="coverageChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: RESEARCH & ANALYTICS -->
+        <div class="tab-content" id="tab-research">
+          <!-- KPI Cards Row -->
+          <div class="kpi-row" style="margin-bottom: 3rem;">
+            <div class="glass-card kpi-badge">
+              <i data-lucide="activity" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-teal);">Strong</div>
+              <div class="kpi-badge__title">Coverage-Recycling Link</div>
+              <p class="kpi-badge__desc">Regions with higher collection coverage rates exhibit direct increases in recycling success.</p>
+            </div>
+            <div class="glass-card kpi-badge">
+              <i data-lucide="dollar-sign" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-gold);">$3.7k</div>
+              <div class="kpi-badge__title">Avg GDP per Capita</div>
+              <p class="kpi-badge__desc">Economic metrics strongly correlate with plastic and paper ratios in urban centers.</p>
+            </div>
+            <div class="glass-card kpi-badge">
+              <i data-lucide="database" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-teal);">1,620</div>
+              <div class="kpi-badge__title">Data Points Analyzed</div>
+              <p class="kpi-badge__desc">5-year time series across 27 governorates processed via Power Query.</p>
+            </div>
+            <div class="glass-card kpi-badge">
+              <i data-lucide="binary" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+              <div class="kpi-badge__value" style="color:var(--accent-gold);">Star</div>
+              <div class="kpi-badge__title">Data Schema Model</div>
+              <p class="kpi-badge__desc">Uses relationships between Governorates, Regions, and Time dimensions.</p>
+            </div>
+          </div>
+
+          <!-- Content Grid -->
+          <div class="analysis-meta">
+            <!-- Left: Deep Explanation -->
+            <div class="glass-card">
+              <h3>Bivariate & Statistical Modeling</h3>
+              <p style="margin-top: 1rem;">The final dashboard sheet investigates causal relationships. Our star schema model links economic development, municipal infrastructure, and recycling performance.</p>
+              
+              <h4 style="color: var(--accent-teal); margin: 1.5rem 0 0.5rem; font-weight: 600;">Key Research Discoveries:</h4>
+              <ul class="download-card__features" style="margin-bottom: 0;">
+                <li><i data-lucide="check" style="color: var(--accent-teal); width: 16px;"></i> <strong>The Collection Trap:</strong> Regions with low collection coverage face depressed formal recycling rates because raw materials never enter formal waste processing facilities.</li>
+                <li><i data-lucide="check" style="color: var(--accent-teal); width: 16px;"></i> <strong>Income Effects:</strong> Areas with higher GDP per capita yield significantly higher plastic and packaging fractions, shifting processing requirements from composting toward material sorting and recovery.</li>
+              </ul>
+            </div>
+
+            <!-- Right: Charts -->
+            <div class="glass-card chart-card">
+              <h3>Recycling Rate vs. Waste Collection Coverage</h3>
+              <p class="chart-card__subtitle">Regional alignment showing the impact of collection infrastructure on recycling outcomes</p>
+              <div class="chart-container">
+                <canvas id="correlationChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-logo"><i data-lucide="leaf" style="width:20px;height:20px;color:var(--accent-teal);"></i><span><span style="color:var(--text-primary)">EcoMetrics</span> <span style="color:var(--accent-gold)">Egypt</span></span></div>
+          <p class="footer__tagline">Turning Waste Into Data. Data Into Action.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Quick Links</div>
+          <div class="footer__links"><a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div>
+        </div>
+        <div>
+          <div class="footer__heading">Project</div>
+          <div class="footer__links"><a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank">GitHub Repository</a><a href="https://depi.gov.eg" target="_blank">DEPI Website</a><a href="https://mcit.gov.eg" target="_blank">Ministry of Communications</a></div>
+        </div>
+      </div>
+      <div class="footer__quote">"Data analytics transforms waste management from a reactive environmental concern into a proactive, evidence-based strategic asset — in support of Egypt Vision 2030."</div>
+      <div class="footer__copyright">© 2025 EcoMetrics Egypt Team · DEPI Data Analytics Capstone · Supervised by Eng. Mahmoud Seraj · Computik Learning Solutions</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    // Tab switching logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Hold active chart instances so we can destroy them on reload
+    let activeCharts = {};
+
+    function destroyCharts() {
+      Object.keys(activeCharts).forEach(key => {
+        if (activeCharts[key]) {
+          activeCharts[key].destroy();
+        }
+      });
+      activeCharts = {};
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        const tabId = btn.getAttribute('data-tab');
+        document.getElementById(`tab-${tabId}`).classList.add('active');
+
+        // Destroy and re-initialize the charts for the active tab to trigger load animations
+        destroyCharts();
+        initTabCharts(tabId);
+      });
+    });
+
+    // Chart Defaults
+    Chart.defaults.color = '#7A8C7E';
+    Chart.defaults.borderColor = '#1E2E22';
+
+    // Initialize Charts for active Tab
+    function initTabCharts(tabId) {
+      if (tabId === 'national') {
+        // MSW Generation by Governorate Chart
+        const mswCtx = document.getElementById('govMswChart');
+        if (mswCtx) {
+          activeCharts['govMsw'] = new Chart(mswCtx, {
+            type: 'bar',
+            data: {
+              labels: ['Cairo', 'Giza', 'Alexandria', 'Sharqia', 'Dakahlia', 'Beheira', 'Minya', 'Qalyubia', 'Sohag', 'Gharbia', 'Asyut', 'Monufia'],
+              datasets: [{
+                label: 'Waste Generated (Tons/Month)',
+                data: [279780.3, 255333.5, 158603.5, 117706.9, 105634.4, 101107.3, 93561.9, 90543.8, 82998.6, 79980.3, 73944.1, 69416.9],
+                backgroundColor: 'rgba(0, 229, 204, 0.75)',
+                borderColor: '#00E5CC',
+                borderWidth: 1,
+                borderRadius: 4
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  backgroundColor: 'rgba(17,28,22,0.95)',
+                  borderColor: '#1E2E22',
+                  borderWidth: 1,
+                  titleFont: { family: 'JetBrains Mono' },
+                  bodyFont: { family: 'JetBrains Mono' }
+                }
+              },
+              scales: {
+                y: {
+                  grid: { color: '#1E2E22' },
+                  ticks: { color: '#7A8C7E', font: { family: 'JetBrains Mono' } }
+                },
+                x: {
+                  grid: { display: false },
+                  ticks: { color: '#B8C4BB', font: { family: 'Inter', size: 10 } }
+                }
+              }
+            }
+          });
+        }
+
+        // Composition Donut Chart
+        const compCtx = document.getElementById('compositionChart');
+        if (compCtx) {
+          activeCharts['composition'] = new Chart(compCtx, {
+            type: 'doughnut',
+            data: {
+              labels: ['Organic', 'Plastic', 'Paper/Cardboard', 'Glass', 'Metal', 'Other'],
+              datasets: [{
+                data: [55.79, 12.89, 9.72, 4.33, 3.63, 13.65],
+                backgroundColor: [
+                  '#00C0AA', // Organic - Teal
+                  '#C9A84C', // Plastic - Gold
+                  '#427A5B', // Paper - Green
+                  '#6B7A90', // Glass - Slate
+                  '#A35D4F', // Metal - Rust
+                  '#2E3A32'  // Other - Dark Green
+                ],
+                borderColor: '#0A0F0D',
+                borderWidth: 2
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'right',
+                  labels: { color: '#B8C4BB', font: { family: 'Inter', size: 11 } }
+                },
+                tooltip: {
+                  backgroundColor: 'rgba(17,28,22,0.95)',
+                  borderColor: '#1E2E22',
+                  borderWidth: 1,
+                  callbacks: { label: ctx => ' ' + ctx.label + ': ' + ctx.parsed + '%' }
+                }
+              }
+            }
+          });
+        }
+      } else if (tabId === 'investment') {
+        // Regional Coverage Chart
+        const covCtx = document.getElementById('coverageChart');
+        if (covCtx) {
+          activeCharts['coverage'] = new Chart(covCtx, {
+            type: 'bar',
+            data: {
+              labels: ['Greater Cairo', 'Suez Canal', 'Alexandria Region', 'Delta Region', 'North Upper Egypt', 'Middle Upper Egypt', 'South Upper Egypt'],
+              datasets: [{
+                label: 'Avg Collection Coverage (%)',
+                data: [66.34, 58.86, 51.04, 36.01, 36.22, 36.43, 36.46],
+                backgroundColor: 'rgba(201, 168, 76, 0.75)',
+                borderColor: '#C9A84C',
+                borderWidth: 1,
+                borderRadius: 4
+              }]
+            },
+            options: {
+              indexAxis: 'y',
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  backgroundColor: 'rgba(17,28,22,0.95)',
+                  borderColor: '#1E2E22',
+                  borderWidth: 1,
+                  callbacks: { label: ctx => ' Coverage: ' + ctx.parsed.x + '%' }
+                }
+              },
+              scales: {
+                x: {
+                  max: 100,
+                  grid: { color: '#1E2E22' },
+                  ticks: { color: '#7A8C7E', font: { family: 'JetBrains Mono' }, callback: v => v + '%' }
+                },
+                y: {
+                  grid: { display: false },
+                  ticks: { color: '#B8C4BB', font: { family: 'Inter', size: 11 } }
+                }
+              }
+            }
+          });
+        }
+      } else if (tabId === 'research') {
+        // Correlation Chart
+        const corrCtx = document.getElementById('correlationChart');
+        if (corrCtx) {
+          activeCharts['correlation'] = new Chart(corrCtx, {
+            type: 'line',
+            data: {
+              labels: ['Delta', 'N. Upper Egypt', 'M. Upper Egypt', 'S. Upper Egypt', 'Alexandria', 'Suez Canal', 'Greater Cairo'],
+              datasets: [
+                {
+                  label: 'Collection Coverage (%)',
+                  data: [36.01, 36.22, 36.43, 36.46, 51.04, 58.86, 66.34],
+                  borderColor: '#C9A84C',
+                  backgroundColor: 'transparent',
+                  tension: 0.2,
+                  pointBackgroundColor: '#C9A84C',
+                  borderWidth: 2,
+                  yAxisID: 'y'
+                },
+                {
+                  label: 'Recycling Rate (%)',
+                  data: [15.96, 15.91, 15.97, 15.95, 15.97, 15.95, 15.96],
+                  borderColor: '#00E5CC',
+                  backgroundColor: 'transparent',
+                  tension: 0.2,
+                  pointBackgroundColor: '#00E5CC',
+                  borderWidth: 2,
+                  yAxisID: 'y1'
+                }
+              ]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'top',
+                  labels: { color: '#B8C4BB', font: { family: 'Inter', size: 11 } }
+                },
+                tooltip: {
+                  backgroundColor: 'rgba(17,28,22,0.95)',
+                  borderColor: '#1E2E22',
+                  borderWidth: 1
+                }
+              },
+              scales: {
+                y: {
+                  type: 'linear',
+                  display: true,
+                  position: 'left',
+                  grid: { color: '#1E2E22' },
+                  ticks: { color: '#C9A84C', font: { family: 'JetBrains Mono' }, callback: v => v + '%' }
+                },
+                y1: {
+                  type: 'linear',
+                  display: true,
+                  position: 'right',
+                  grid: { drawOnChartArea: false },
+                  ticks: { color: '#00E5CC', font: { family: 'JetBrains Mono' }, callback: v => v + '%' },
+                  min: 15.8,
+                  max: 16.1
+                },
+                x: {
+                  grid: { display: false },
+                  ticks: { color: '#B8C4BB', font: { family: 'Inter', size: 10 } }
+                }
+              }
+            }
+          });
+        }
+      }
+    }
+
+    // Map interaction logic - Governorate level
+    function initMapInteractions() {
+      const regions = document.querySelectorAll('.map-region');
+      const mdTitle = document.getElementById('md-title');
+      const mdWaste = document.getElementById('md-waste');
+      const mdRec = document.getElementById('md-rec');
+      const mdCov = document.getElementById('md-cov');
+      const mdPop = document.getElementById('md-pop');
+      const mdRegionBadge = document.getElementById('md-region-badge');
+
+      regions.forEach(reg => {
+        const updateDetail = () => {
+          regions.forEach(r => r.classList.remove('active'));
+          reg.classList.add('active');
+
+          const name = reg.getAttribute('data-gov-name');
+          const waste = reg.getAttribute('data-waste');
+          const rec = reg.getAttribute('data-rec');
+          const cov = reg.getAttribute('data-cov');
+          const pop = reg.getAttribute('data-pop');
+          const region = reg.getAttribute('data-region');
+
+          if (mdTitle) mdTitle.textContent = name;
+          if (mdWaste) mdWaste.textContent = waste + ' tons';
+          if (mdRec) mdRec.textContent = rec + '%';
+          if (mdCov) mdCov.textContent = cov + '%';
+          if (mdPop) mdPop.textContent = pop;
+          if (mdRegionBadge) mdRegionBadge.textContent = region;
+        };
+
+        reg.addEventListener('mouseenter', updateDetail);
+        reg.addEventListener('click', updateDetail);
+      });
+    }
+
+    function triggerGovActionPlan() {
+      const name = document.getElementById('md-title').textContent;
+      const waste = document.getElementById('md-waste').textContent;
+      const rec = document.getElementById('md-rec').textContent;
+      const cov = document.getElementById('md-cov').textContent;
+      const pop = document.getElementById('md-pop').textContent;
+      const region = document.getElementById('md-region-badge').textContent;
+      
+      const promptText = `Create a friendly, practical waste recycling improvement plan for ${name} governorate (${region} region, population ${pop}). It generates ${waste} monthly, has a recycling rate of ${rec} and collection coverage of ${cov}. Give 3 specific, high-leverage action items to boost performance!`;
+      window.triggerBotMessage(promptText);
+    }
+
+    // Load initial charts for National
+    document.addEventListener('DOMContentLoaded', () => {
+      initTabCharts('national');
+      initMapInteractions();
+      
+      // Hook up active state for the navbar trigger
+      const link = document.querySelector('.navbar__link[href="analysis.html"]');
+      if (link) link.classList.add('active');
+    });
+  </script>
+</body>
+</html>

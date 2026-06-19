@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic Recommendations — EcoMetrics Egypt</title>
+  <meta name="description" content="Five evidence-based strategic recommendations to close Egypt's recycling gap: sorting infrastructure, predictive maintenance, route optimization, best-practice transfer, and data governance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-page="recommendations">
+
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><i data-lucide="leaf" style="width:24px;height:24px;color:var(--accent-teal);"></i><span class="navbar__logo-text"><span>EcoMetrics</span><span>Egypt</span></span></a>
+      <div class="navbar__links">
+        <a href="index.html" class="navbar__link">Home</a><a href="story.html" class="navbar__link">Story</a><a href="data.html" class="navbar__link">Data</a>
+        <a href="analysis.html" class="navbar__link">Analysis</a><a href="pipeline.html" class="navbar__link">Pipeline</a><a href="recommendations.html" class="navbar__link">Recommendations</a><a href="team.html" class="navbar__link">Team</a><a href="resources.html" class="navbar__link">Resources</a><a href="contact.html" class="navbar__link">Contact</a>
+        <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline btn-compact navbar__github">
+          <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+        </a>
+        <button class="theme-toggle" aria-label="Toggle dark/light theme">
+          <i data-lucide="sun" class="theme-toggle__sun" style="width:18px;height:18px;"></i>
+          <i data-lucide="moon" class="theme-toggle__moon" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle navigation"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+    </div>
+  </nav>
+  <div class="mobile-nav" role="navigation" aria-label="Mobile Navigation"><a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div>
+
+  <main>
+    <section class="page-hero">
+      <div>
+        <span class="page-hero__label">STRATEGIC INSIGHTS</span>
+        <h1>Five Actions That Move the Needle</h1>
+        <p class="page-hero__subtitle">Each recommendation is grounded in specific data findings — not assumptions — with a measurable projected impact.</p>
+      </div>
+    </section>
+
+    <!-- Progress Banner -->
+    <section class="progress-banner">
+      <div class="container">
+        <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:1rem;">
+          <div style="text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--accent-teal);">37%</div>
+            <div style="font-size:0.85rem;color:var(--text-muted);">Current Rate (2024)</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--accent-warning);">23 pts</div>
+            <div style="font-size:0.85rem;color:var(--text-muted);">Gap to Close</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--accent-gold);">60%</div>
+            <div style="font-size:0.85rem;color:var(--text-muted);">Target by 2027</div>
+          </div>
+        </div>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar__track">
+            <div class="progress-bar__fill" id="progressFill"></div>
+            <div class="progress-bar__target"></div>
+          </div>
+          <div class="progress-labels">
+            <span style="color:var(--accent-teal);">37% Current</span>
+            <span style="color:var(--accent-gold);">60% Target ⚑</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI & Impact Simulator Section -->
+    <section class="section section--alt simulator-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="page-hero__label" style="color:var(--accent-gold);">INTERACTIVE SANDBOX</span>
+          <h2 style="margin-bottom: 0.8rem;">Impact & ROI Simulator</h2>
+          <p style="max-width: 650px; margin: 0 auto 2.5rem;">Adjust the operational sliders to simulate how implementing our recommendations closes the gap to Egypt's 60% Vision 2030 target.</p>
+        </div>
+        
+        <div class="glass-card simulator-card reveal">
+          <div class="sim-layout">
+            <!-- Left Side: Controls -->
+            <div class="sim-controls">
+              <div class="sim-slider-group">
+                <div class="sim-slider-header">
+                  <span class="sim-slider-label">Fleet Routing Optimization (REC 03)</span>
+                  <span class="sim-slider-value" id="valRouting">73%</span>
+                </div>
+                <input type="range" min="73" max="90" value="73" class="sim-slider" id="slideRouting" aria-label="Fleet Routing Optimization slider">
+                <div class="sim-slider-sub">Baseline collection efficiency is 73%. Optimized routing pushes truck utilization and recovers scheduling gaps.</div>
+              </div>
+              
+              <div class="sim-slider-group">
+                <div class="sim-slider-header">
+                  <span class="sim-slider-label">Sorting Accuracy & Technology (REC 01)</span>
+                  <span class="sim-slider-value" id="valSorting">88%</span>
+                </div>
+                <input type="range" min="88" max="99" value="88" class="sim-slider" id="slideSorting" aria-label="Sorting Accuracy slider">
+                <div class="sim-slider-sub">Each 1% increase in sorting accuracy yields a compounding 2.3% boost in marketable downstream materials.</div>
+              </div>
+              
+              <div class="sim-slider-group">
+                <div class="sim-slider-header">
+                  <span class="sim-slider-label">Equipment Maintenance Uptime (REC 02)</span>
+                  <span class="sim-slider-value" id="valUptime">67%</span>
+                </div>
+                <input type="range" min="67" max="90" value="67" class="sim-slider" id="slideUptime" aria-label="Equipment Maintenance Uptime slider">
+                <div class="sim-slider-sub">Condition-based monitoring and predictive schedules shift operations from reactive repair to planned maintenance.</div>
+              </div>
+            </div>
+            
+            <!-- Right Side: Impact Outputs -->
+            <div class="sim-outputs">
+              <div class="sim-output-card">
+                <span class="sim-output-label">PROJECTED EFFECTIVE RECYCLING RATE</span>
+                <div class="sim-output-main">
+                  <span class="sim-output-num" id="outRecRate">37.0%</span>
+                  <span class="sim-output-badge" id="outGapStatus">23.0% Gap</span>
+                </div>
+                <div class="sim-progress-mini">
+                  <div class="sim-progress-mini__fill" id="simProgressMiniFill"></div>
+                </div>
+              </div>
+              
+              <div class="sim-output-grid">
+                <div class="sim-sub-card">
+                  <span class="sim-output-label">ESTIMATED ANNUAL RETURN</span>
+                  <div class="sim-sub-num" id="outROI">0.0M EGP</div>
+                  <span class="sim-sub-desc">Combined cost savings & material sales downstream</span>
+                </div>
+                <div class="sim-sub-card">
+                  <span class="sim-output-label">LANDFILL DIVERSION GAIN</span>
+                  <div class="sim-sub-num" id="outDiversion">0 Tons</div>
+                  <span class="sim-sub-desc font-size: 0.7rem;">Additional municipal waste diverted annually</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="section">
+      <div class="container">
+        <!-- Top 2 -->
+        <div class="rec-grid-top">
+          <div class="glass-card rec-card reveal" style="border-left:3px solid var(--accent-danger);">
+            <span class="rec-card__priority rec-card__priority--high">HIGH IMPACT</span>
+            <div class="rec-card__icon"><i data-lucide="zap" style="width:28px;height:28px;color:var(--accent-teal);"></i></div>
+            <div class="rec-card__number">REC 01</div>
+            <h3>Sorting Infrastructure Prioritization</h3>
+            <p>Sorting accuracy is the single greatest determinant of downstream recovery yield. Our analysis found that a one-percentage-point improvement in sorting accuracy corresponds to a 2.3% increase in marketable recovered material volume — the highest leverage point in the entire pipeline. Investment in near-infrared spectroscopy (NIR) systems for automated material identification and quality-control sensors at sorting conveyors represents the highest-ROI intervention available. This is especially critical given the strong negative correlation found between sorting accuracy and downstream contamination levels.</p>
+            <span class="rec-card__impact rec-card__impact--teal">📈 +15 to 20 percentage points toward Vision 2030 target</span>
+          </div>
+          <div class="glass-card rec-card reveal" style="border-left:3px solid var(--accent-danger);">
+            <span class="rec-card__priority rec-card__priority--high">HIGH IMPACT</span>
+            <div class="rec-card__icon"><i data-lucide="activity" style="width:28px;height:28px;color:var(--accent-gold);"></i></div>
+            <div class="rec-card__number">REC 02</div>
+            <h3>Predictive Maintenance Deployment</h3>
+            <p>Equipment mechanical failure is the single largest cause of operational downtime, accounting for 34% of all lost hours — disproportionately large given the right-skewed distribution of failure events. A small number of catastrophic failures cause the majority of downtime losses. Deploying condition-monitoring sensor networks (vibration, temperature, pressure) on critical sorting and processing machinery, combined with machine-learning-based predictive maintenance models trained on historical failure patterns, would shift operations from reactive repair to anticipatory intervention. Industry benchmarks suggest predictive maintenance can reduce unplanned equipment downtime by 30–50%.</p>
+            <span class="rec-card__impact rec-card__impact--gold">📈 Reduce mechanical downtime by 30–50%; recover 10%+ of lost processing capacity</span>
+          </div>
+        </div>
+
+        <!-- Bottom 3 -->
+        <div class="rec-grid-bottom">
+          <div class="glass-card rec-card reveal" style="border-left:3px solid var(--accent-warning);">
+            <span class="rec-card__priority rec-card__priority--medium">MEDIUM IMPACT</span>
+            <div class="rec-card__icon"><i data-lucide="navigation" style="width:24px;height:24px;color:var(--accent-teal);"></i></div>
+            <div class="rec-card__number">REC 03</div>
+            <h3>Route Optimization Algorithms</h3>
+            <p>Collection efficiency averaged 73% across the portfolio, with pronounced troughs on Monday mornings and during peak summer months — patterns consistent with fleet maintenance scheduling gaps and heat-related vehicle performance degradation. Applying vehicle routing optimization (VRP) algorithms to collection scheduling is projected to recover 8–12 percentage points of collection efficiency without capital investment.</p>
+            <span class="rec-card__impact rec-card__impact--teal">📈 Collection efficiency: 73% → 85%+</span>
+          </div>
+          <div class="glass-card rec-card reveal" style="border-left:3px solid var(--accent-warning);">
+            <span class="rec-card__priority rec-card__priority--medium">MEDIUM IMPACT</span>
+            <div class="rec-card__icon"><i data-lucide="users" style="width:24px;height:24px;color:var(--accent-gold);"></i></div>
+            <div class="rec-card__number">REC 04</div>
+            <h3>Best-Practice Dissemination Program</h3>
+            <p>The analysis revealed that the highest-performing facilities achieve recovery rates more than 40% above the portfolio mean. This gap is not primarily explained by capital or infrastructure differences — it reflects operational practices: shift management, material handling procedures, and contamination control routines. A structured knowledge-transfer program can leverage existing human capital to deliver system-level gains with minimal incremental cost.</p>
+            <span class="rec-card__impact rec-card__impact--gold">📈 Narrow best-to-average gap by 50%+</span>
+          </div>
+          <div class="glass-card rec-card reveal" style="border-left:3px solid var(--border-glow);">
+            <span class="rec-card__priority rec-card__priority--foundational">FOUNDATIONAL</span>
+            <div class="rec-card__icon"><i data-lucide="shield-check" style="width:24px;height:24px;color:var(--text-muted);"></i></div>
+            <div class="rec-card__number">REC 05</div>
+            <h3>Data Governance Framework</h3>
+            <p>The initial data quality assessment revealed meaningful inconsistencies across facilities: non-standardized categorical field definitions, varying timestamp formats, and missing data patterns that were non-random. Establishing a data governance framework — including uniform field definitions, mandatory entry validation, quarterly data quality audits, and a central data stewardship role — is the foundational prerequisite for all other recommendations.</p>
+            <span class="rec-card__impact rec-card__impact--teal">📈 Enables and amplifies all other interventions</span>
+          </div>
+        </div>
+
+        <!-- Summary Callout -->
+        <div class="glass-card summary-callout reveal" style="border-top:3px solid var(--accent-gold);">
+          <p>Combined impact of all five interventions: estimated 15–20 percentage-point improvement in effective material recovery rate — sufficient to bridge the gap to the 2030 target, subject to implementation fidelity and infrastructure readiness.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sorting Operations Minigame Section -->
+    <section class="section simulator-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="page-hero__label" style="color:var(--accent-teal);">SIMULATION CHALLENGE</span>
+          <h2 style="margin-bottom: 0.8rem;">Conveyor Belt Sorting Game</h2>
+          <p style="max-width: 650px; margin: 0 auto 2.5rem;">Experience the operational challenge of waste sorting! Click or tap incoming materials to route them to the correct bins. Avoid contaminants to protect sorting machinery.</p>
+        </div>
+        
+        <div class="glass-card sorting-game-card reveal">
+          <div class="game-container">
+            <div class="game-header">
+              <div class="game-score-item">
+                <span class="game-score-label">SCORE</span>
+                <span class="game-score-val" id="gameScore">0</span>
+              </div>
+              <div class="game-score-item">
+                <span class="game-score-label">ACCURACY</span>
+                <span class="game-score-val" id="gameAccuracy">100%</span>
+              </div>
+              <div class="game-score-item">
+                <span class="game-score-label">TONS SORTED</span>
+                <span class="game-score-val" id="gameTons">0.0 t</span>
+              </div>
+            </div>
+            
+            <div class="game-canvas-container">
+              <canvas id="gameCanvas" width="800" height="320"></canvas>
+              <div class="game-overlay" id="gameOverlay">
+                <div class="game-overlay-content">
+                  <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;">Sorting Facility Simulator</h3>
+                  <p>Materials slide along the conveyor belt. Click each item to route it to its matching bin. Avoid clicking Red Contaminants, and don't let recyclables fall into the landfill unsorted!</p>
+                  <button class="btn-primary" id="btnStartGame" style="margin-top:0.5rem;">Start Sorting Shift</button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Bins / Control Panel -->
+            <div class="game-bins">
+              <div class="game-bin bin-organic" data-type="organic">
+                <i data-lucide="leaf" style="width:18px;height:18px;color:#81C784;"></i>
+                <span>Organic (Green)</span>
+              </div>
+              <div class="game-bin bin-plastic" data-type="plastic">
+                <i data-lucide="droplet" style="width:18px;height:18px;color:#FFD54F;"></i>
+                <span>Plastic (Yellow)</span>
+              </div>
+              <div class="game-bin bin-metal" data-type="metal">
+                <i data-lucide="wrench" style="width:18px;height:18px;color:#FF8A65;"></i>
+                <span>Metal (Rust)</span>
+              </div>
+              <div class="game-bin bin-contaminant" data-type="contaminant">
+                <i data-lucide="alert-triangle" style="width:18px;height:18px;color:#E57373;"></i>
+                <span>Contaminant (Red)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand"><div class="footer__brand-logo"><i data-lucide="leaf" style="width:20px;height:20px;color:var(--accent-teal);"></i><span><span style="color:var(--text-primary)">EcoMetrics</span> <span style="color:var(--accent-gold)">Egypt</span></span></div><p class="footer__tagline">Turning Waste Into Data. Data Into Action.</p></div>
+        <div><div class="footer__heading">Quick Links</div><div class="footer__links"><a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div></div>
+        <div><div class="footer__heading">Project</div><div class="footer__links"><a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank">GitHub Repository</a><a href="https://depi.gov.eg" target="_blank">DEPI Website</a><a href="https://mcit.gov.eg" target="_blank">Ministry of Communications</a></div></div>
+      </div>
+      <div class="footer__quote">"Data analytics transforms waste management from a reactive environmental concern into a proactive, evidence-based strategic asset — in support of Egypt Vision 2030."</div>
+      <div class="footer__copyright">© 2025 EcoMetrics Egypt Team · DEPI Data Analytics Capstone · Supervised by Eng. Mahmoud Seraj · Computik Learning Solutions</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    // ============================================
+    // ROI & Impact Simulator Logic
+    // ============================================
+    const slideRouting = document.getElementById('slideRouting');
+    const slideSorting = document.getElementById('slideSorting');
+    const slideUptime = document.getElementById('slideUptime');
+
+    const valRouting = document.getElementById('valRouting');
+    const valSorting = document.getElementById('valSorting');
+    const valUptime = document.getElementById('valUptime');
+
+    const outRecRate = document.getElementById('outRecRate');
+    const outGapStatus = document.getElementById('outGapStatus');
+    const simProgressMiniFill = document.getElementById('simProgressMiniFill');
+    const outROI = document.getElementById('outROI');
+    const outDiversion = document.getElementById('outDiversion');
+
+    // Progress banner elements
+    const progressFill = document.getElementById('progressFill');
+
+    function updateSimulator() {
+      const routing = parseInt(slideRouting.value);
+      const sorting = parseInt(slideSorting.value);
+      const uptime = parseInt(slideUptime.value);
+
+      // Update slider labels
+      valRouting.textContent = `${routing}%`;
+      valSorting.textContent = `${sorting}%`;
+      valUptime.textContent = `${uptime}%`;
+
+      // Calculate gains
+      // Routing baseline: 73%. Each 1% yields 0.25% recycling, 1.8M EGP, 25k tons
+      const routingGain = (routing - 73) * 0.25;
+      const routingROI = (routing - 73) * 1.8;
+      const routingDiv = (routing - 73) * 25000;
+
+      // Sorting baseline: 88%. Each 1% yields 1.2% recycling (2.3x multiplier effect downstream!), 8.5M EGP, 120k tons
+      const sortingGain = (sorting - 88) * 1.2;
+      const sortingROI = (sorting - 88) * 8.5;
+      const sortingDiv = (sorting - 88) * 120000;
+
+      // Uptime baseline: 67%. Each 1% yields 0.5% recycling, 3.2M EGP, 50k tons
+      const uptimeGain = (uptime - 67) * 0.5;
+      const uptimeROI = (uptime - 67) * 3.2;
+      const uptimeDiv = (uptime - 67) * 50000;
+
+      // Calculate totals
+      const totalRecRate = 37.0 + routingGain + sortingGain + uptimeGain;
+      const totalROI = routingROI + sortingROI + uptimeROI;
+      const totalDiv = routingDiv + sortingDiv + uptimeDiv;
+
+      // Update DOM
+      outRecRate.textContent = `${totalRecRate.toFixed(1)}%`;
+      outROI.textContent = `${totalROI.toFixed(1)}M EGP`;
+      outDiversion.textContent = `${totalDiv.toLocaleString()} Tons`;
+
+      // Update progress fills
+      simProgressMiniFill.style.width = `${totalRecRate}%`;
+      
+      // Target is 60%. Scale the main progress fill accordingly
+      const bannerPercentage = Math.min((totalRecRate / 60) * 100, 100);
+      progressFill.style.width = `${bannerPercentage}%`;
+
+      // Update status badge
+      if (totalRecRate >= 60.0) {
+        outGapStatus.textContent = 'Target Met! 🎉';
+        outGapStatus.classList.add('met');
+        outROI.style.color = 'var(--accent-teal)';
+      } else {
+        const gap = 60.0 - totalRecRate;
+        outGapStatus.textContent = `${gap.toFixed(1)}% Gap`;
+        outGapStatus.classList.remove('met');
+        outROI.style.color = 'var(--text-primary)';
+      }
+    }
+
+    // Add event listeners to sliders
+    slideRouting.addEventListener('input', updateSimulator);
+    slideSorting.addEventListener('input', updateSimulator);
+    slideUptime.addEventListener('input', updateSimulator);
+
+    // Initialize simulator
+    updateSimulator();
+
+    // ============================================
+    // Conveyor Belt Sorting Minigame Logic
+    // ============================================
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const btnStartGame = document.getElementById('btnStartGame');
+    const gameOverlay = document.getElementById('gameOverlay');
+    const gameScoreEl = document.getElementById('gameScore');
+    const gameAccuracyEl = document.getElementById('gameAccuracy');
+    const gameTonsEl = document.getElementById('gameTons');
+
+    let gameActive = false;
+    let score = 0;
+    let totalSpawned = 0;
+    let correctSorts = 0;
+    let tonsSorted = 0;
+    let gameItems = [];
+    let gameParticles = [];
+    let gameFloatTexts = [];
+    let conveyorOffset = 0;
+    let gameTimer = 0;
+    const shiftDuration = 45; // 45 seconds
+    let spawnIntervalId;
+    let gameLoopId;
+    let startTime;
+
+    // Item Definitions
+    const ITEM_TYPES = {
+      organic: { color: '#81C784', label: 'Organic', radius: 22, symbol: 'O' },
+      plastic: { color: '#FFD54F', label: 'Plastic', radius: 20, symbol: 'P' },
+      metal: { color: '#FF8A65', label: 'Metal', radius: 18, symbol: 'M' },
+      contaminant: { color: '#E57373', label: 'Contaminant', radius: 20, symbol: 'X' }
+    };
+
+    class GameItem {
+      constructor(type) {
+        this.type = type;
+        this.properties = ITEM_TYPES[type];
+        this.x = -50;
+        this.y = 170 + (Math.random() * 24 - 12); // vertical jitter
+        this.radius = this.properties.radius;
+        this.speed = 1.8 + Math.random() * 0.9;
+        this.sorted = false;
+        this.angle = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.04;
+        
+        // Flying details
+        this.flyProgress = 0;
+        this.startX = 0;
+        this.startY = 0;
+        this.targetX = 0;
+        this.targetY = canvas.height + 50;
+      }
+
+      update() {
+        if (this.sorted) {
+          if (this.flyProgress < 1) {
+            this.flyProgress += 0.07;
+            const t = this.flyProgress;
+            const easeT = t * (2 - t); // quadratic ease out
+            this.x = this.startX + (this.targetX - this.startX) * easeT;
+            this.y = this.startY + (this.targetY - this.startY) * easeT;
+          }
+          return;
+        }
+        this.x += this.speed;
+        this.angle += this.rotSpeed;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        // Shadow
+        ctx.beginPath();
+        ctx.arc(2, 4, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
+        ctx.fill();
+
+        // Outer outline
+        ctx.beginPath();
+        ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.properties.color;
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 1.5;
+        ctx.fill();
+        ctx.stroke();
+
+        // Inner circle accent
+        ctx.beginPath();
+        ctx.arc(0, 0, this.radius * 0.7, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.fill();
+
+        // Inner Text Symbol
+        ctx.fillStyle = '#060B08';
+        ctx.font = 'bold 12px "Space Grotesk", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(this.properties.symbol, 0, 0);
+
+        ctx.restore();
+      }
+    }
+
+    class GameParticle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 5;
+        this.vy = (Math.random() - 0.5) * 5 - 2;
+        this.radius = 1.5 + Math.random() * 2.5;
+        this.color = color;
+        this.alpha = 1.0;
+        this.gravity = 0.12;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += this.gravity;
+        this.alpha -= 0.035;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    class GameFloatText {
+      constructor(x, y, text, color) {
+        this.x = x;
+        this.y = y;
+        this.text = text;
+        this.color = color;
+        this.vy = -1.1;
+        this.alpha = 1.0;
+      }
+
+      update() {
+        this.y += this.vy;
+        this.alpha -= 0.025;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.font = 'bold 13px "Space Grotesk", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(this.text, this.x, this.y);
+        ctx.restore();
+      }
+    }
+
+    function spawnGameItem() {
+      if (!gameActive) return;
+      const r = Math.random();
+      let type = 'organic';
+      if (r > 0.3 && r <= 0.6) type = 'plastic';
+      else if (r > 0.6 && r <= 0.85) type = 'metal';
+      else if (r > 0.85) type = 'contaminant';
+
+      gameItems.push(new GameItem(type));
+      if (type !== 'contaminant') {
+        totalSpawned++;
+      }
+    }
+
+    function updateGameHUD() {
+      gameScoreEl.textContent = score;
+      const acc = totalSpawned === 0 ? 100 : Math.round((correctSorts / totalSpawned) * 100);
+      gameAccuracyEl.textContent = `${acc}%`;
+      gameTonsEl.textContent = `${tonsSorted.toFixed(1)} t`;
+    }
+
+    function triggerGameBinPulse(type) {
+      const bin = document.querySelector(`.bin-${type}`);
+      if (bin) {
+        bin.style.transform = 'scale(1.08)';
+        bin.style.borderColor = ITEM_TYPES[type].color;
+        bin.style.background = 'rgba(255, 255, 255, 0.05)';
+        setTimeout(() => {
+          bin.style.transform = '';
+          bin.style.borderColor = '';
+          bin.style.background = '';
+        }, 220);
+      }
+    }
+
+    function startShift() {
+      score = 0;
+      totalSpawned = 0;
+      correctSorts = 0;
+      tonsSorted = 0;
+      gameItems = [];
+      gameParticles = [];
+      gameFloatTexts = [];
+      gameActive = true;
+      startTime = Date.now();
+      
+      gameOverlay.classList.add('hidden');
+      updateGameHUD();
+
+      // Spawning interval
+      clearInterval(spawnIntervalId);
+      spawnIntervalId = setInterval(spawnGameItem, 1200);
+
+      // Animation loop
+      cancelAnimationFrame(gameLoopId);
+      gameLoopId = requestAnimationFrame(runGameLoop);
+    }
+
+    function stopShift() {
+      gameActive = false;
+      clearInterval(spawnIntervalId);
+      
+      const acc = totalSpawned === 0 ? 100 : Math.round((correctSorts / totalSpawned) * 100);
+      const yieldMultiplier = (acc * 2.3).toFixed(1);
+
+      gameOverlay.classList.remove('hidden');
+      gameOverlay.querySelector('.game-overlay-content').innerHTML = `
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent-teal);">Shift Complete! ⏱️</h3>
+        <p style="font-size: 1.05rem; margin-top: 0.2rem;">
+          You sorted <strong>${tonsSorted.toFixed(1)} tons</strong> of recyclables with an accuracy of <strong>${acc}%</strong>.
+        </p>
+        <div style="background: var(--accent-gold-dim); border: 1px solid var(--accent-gold); border-radius: 8px; padding: 15px; margin: 15px 0; text-align: left; font-size: 0.88rem; line-height: 1.5; color: var(--text-primary);">
+          <strong>Compounding Data Insights:</strong> Due to downstream yield multipliers, your <strong>${acc}%</strong> sorting accuracy translates to a <strong>${yieldMultiplier}%</strong> recovery multiplier! Optimizing sorting delivers the highest economic ROI.
+        </div>
+        <button class="btn-primary" id="btnStartGame" style="margin-top: 0.5rem;">Sort Another Shift</button>
+      `;
+      
+      document.getElementById('btnStartGame').addEventListener('click', startShift);
+    }
+
+    function drawConveyor() {
+      conveyorOffset = (conveyorOffset + 2) % 30;
+
+      // Belt bed
+      ctx.fillStyle = '#111A15';
+      ctx.fillRect(0, 130, canvas.width, 60);
+
+      // Belt bounds
+      ctx.fillStyle = '#1E2E22';
+      ctx.fillRect(0, 127, canvas.width, 3);
+      ctx.fillRect(0, 190, canvas.width, 3);
+
+      // Belt lines
+      ctx.strokeStyle = '#2A4030';
+      ctx.lineWidth = 1.5;
+      for (let x = conveyorOffset - 30; x < canvas.width + 30; x += 30) {
+        ctx.beginPath();
+        ctx.moveTo(x, 130);
+        ctx.lineTo(x - 8, 190);
+        ctx.stroke();
+      }
+
+      // Rotating Gears
+      ctx.fillStyle = '#0B120F';
+      ctx.strokeStyle = '#1E2E22';
+      ctx.lineWidth = 2.5;
+      const gears = [120, 320, 520, 720];
+      gears.forEach(gx => {
+        ctx.save();
+        ctx.translate(gx, 203);
+        ctx.rotate(conveyorOffset * 0.05);
+        ctx.beginPath();
+        ctx.arc(0, 0, 12, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        // Spokes
+        for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
+          ctx.beginPath();
+          ctx.moveTo(Math.cos(a) * 9, Math.sin(a) * 9);
+          ctx.lineTo(Math.cos(a) * 16, Math.sin(a) * 16);
+          ctx.stroke();
+        }
+        ctx.restore();
+      });
+    }
+
+    function runGameLoop() {
+      if (!gameActive) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const timeLeft = Math.max(0, shiftDuration - elapsed);
+
+      // Base background
+      ctx.fillStyle = '#060B08';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw Conveyor belt
+      drawConveyor();
+
+      // Render items
+      for (let i = gameItems.length - 1; i >= 0; i--) {
+        const item = gameItems[i];
+        item.update();
+        item.draw();
+
+        // Escape checks
+        if (!item.sorted && item.x > canvas.width + 40) {
+          if (item.type !== 'contaminant') {
+            score = Math.max(0, score - 5);
+            gameFloatTexts.push(new GameFloatText(canvas.width - 60, 120, 'Landfill Loss! -5', '#FF4444'));
+            triggerGameBinPulse('contaminant');
+          }
+          gameItems.splice(i, 1);
+          updateGameHUD();
+        } else if (item.sorted && item.flyProgress >= 1) {
+          gameItems.splice(i, 1);
+        }
+      }
+
+      // Update and draw particles
+      for (let i = gameParticles.length - 1; i >= 0; i--) {
+        const p = gameParticles[i];
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) gameParticles.splice(i, 1);
+      }
+
+      // Update float text
+      for (let i = gameFloatTexts.length - 1; i >= 0; i--) {
+        const ft = gameFloatTexts[i];
+        ft.update();
+        ft.draw();
+        if (ft.alpha <= 0) gameFloatTexts.splice(i, 1);
+      }
+
+      // Draw shift timer bar
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, 6);
+      ctx.fillStyle = timeLeft > 10 ? 'var(--accent-teal)' : '#FF4444';
+      ctx.fillRect(0, 0, (timeLeft / shiftDuration) * canvas.width, 6);
+
+      // Timer text
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.font = '11px "Space Grotesk", sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(`Shift: ${timeLeft}s`, canvas.width - 15, 22);
+
+      if (timeLeft <= 0) {
+        stopShift();
+        return;
+      }
+
+      gameLoopId = requestAnimationFrame(runGameLoop);
+    }
+
+    // Handle Item Clicks
+    canvas.addEventListener('click', (e) => {
+      if (!gameActive) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
+      const mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
+
+      for (let i = gameItems.length - 1; i >= 0; i--) {
+        const item = gameItems[i];
+        if (item.sorted) continue;
+
+        const dx = item.x - mouseX;
+        const dy = item.y - mouseY;
+        const clicked = dx*dx + dy*dy < item.radius*item.radius;
+
+        if (clicked) {
+          if (item.type === 'contaminant') {
+            score = Math.max(0, score - 15);
+            gameFloatTexts.push(new GameFloatText(item.x, item.y - 12, 'Machine Damaged! -15', '#FF4444'));
+            
+            // Red burst particles
+            for (let p = 0; p < 12; p++) {
+              gameParticles.push(new GameParticle(item.x, item.y, '#E57373'));
+            }
+            item.sorted = true;
+            item.flyProgress = 1;
+            triggerGameBinPulse('contaminant');
+          } else {
+            // Success
+            item.sorted = true;
+            item.startX = item.x;
+            item.startY = item.y;
+            
+            let targetIdx = 0;
+            if (item.type === 'plastic') targetIdx = 1;
+            else if (item.type === 'metal') targetIdx = 2;
+            
+            item.targetX = (canvas.width / 4) * targetIdx + (canvas.width / 8);
+            item.targetY = canvas.height + 40;
+            
+            score += 10;
+            correctSorts++;
+            tonsSorted += 0.1;
+
+            // Spawn dynamic sparkles
+            for (let p = 0; p < 8; p++) {
+              gameParticles.push(new GameParticle(item.x, item.y, item.properties.color));
+            }
+
+            gameFloatTexts.push(new GameFloatText(item.x, item.y - 12, `+10 Sorted!`, 'var(--accent-teal)'));
+            triggerGameBinPulse(item.type);
+          }
+          updateGameHUD();
+          break; // break to avoid multi-clicks
+        }
+      }
+    });
+
+    // Custom hover cursor
+    canvas.addEventListener('mousemove', (e) => {
+      if (!gameActive) return;
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
+      const mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
+      
+      let hover = false;
+      for (const item of gameItems) {
+        if (!item.sorted) {
+          const dx = item.x - mouseX;
+          const dy = item.y - mouseY;
+          if (dx*dx + dy*dy < item.radius*item.radius) {
+            hover = true;
+            break;
+          }
+        }
+      }
+      canvas.style.cursor = hover ? 'pointer' : 'crosshair';
+    });
+
+    // Initial placeholder drawing
+    ctx.fillStyle = '#060B08';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    drawConveyor();
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.font = '14px "Space Grotesk", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Conveyor belt inactive. Click "Start Sorting Shift" to begin.', canvas.width / 2, 75);
+
+    btnStartGame.addEventListener('click', startShift);
+  </script>
+</body>
+</html>

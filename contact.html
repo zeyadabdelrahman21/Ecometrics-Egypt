@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — EcoMetrics Egypt</title>
+  <meta name="description" content="Get in touch with the EcoMetrics Egypt team. Reach out for questions about data analytics, waste management insights, or collaboration opportunities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-page="contact">
+
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><i data-lucide="leaf" style="width:24px;height:24px;color:var(--accent-teal);"></i><span class="navbar__logo-text"><span>EcoMetrics</span><span>Egypt</span></span></a>
+      <div class="navbar__links">
+        <a href="index.html" class="navbar__link">Home</a><a href="story.html" class="navbar__link">Story</a><a href="data.html" class="navbar__link">Data</a>
+        <a href="analysis.html" class="navbar__link">Analysis</a><a href="pipeline.html" class="navbar__link">Pipeline</a><a href="recommendations.html" class="navbar__link">Recommendations</a><a href="team.html">Team</a><a href="resources.html" class="navbar__link">Resources</a><a href="contact.html" class="navbar__link">Contact</a>
+        <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline btn-compact navbar__github">
+          <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+        </a>
+        <button class="theme-toggle" aria-label="Toggle dark/light theme">
+          <i data-lucide="sun" class="theme-toggle__sun" style="width:18px;height:18px;"></i>
+          <i data-lucide="moon" class="theme-toggle__moon" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle navigation"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+    </div>
+  </nav>
+  <div class="mobile-nav" role="navigation" aria-label="Mobile Navigation"><a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div>
+
+  <main>
+    <section class="page-hero" style="min-height:350px;">
+      <div>
+        <span class="page-hero__label">GET IN TOUCH</span>
+        <h1>Contact Us</h1>
+        <p class="page-hero__subtitle">Have questions about the project, the data, or potential collaboration? We'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="glass-card reveal">
+            <h2 style="font-size:1.5rem;margin-bottom:1.5rem;">Send a Message</h2>
+            <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName" name="name" placeholder="Enter your name" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="contactSubject">Subject</label>
+                <select id="contactSubject" name="subject">
+                  <option value="general">General Inquiry</option>
+                  <option value="data">Data & Methodology Question</option>
+                  <option value="collaboration">Collaboration Opportunity</option>
+                  <option value="dashboard">Dashboard Access Help</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" name="message" placeholder="Tell us what you're interested in..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+                <i data-lucide="send" style="width:16px;height:16px;"></i> Send Message
+              </button>
+            </form>
+            <div id="contactSuccess" style="display:none;text-align:center;padding:2rem;">
+              <i data-lucide="check-circle" style="width:48px;height:48px;color:var(--accent-teal);margin-bottom:1rem;"></i>
+              <h3 style="color:var(--accent-teal);margin-bottom:0.5rem;">Message Sent!</h3>
+              <p style="color:var(--text-muted);font-size:0.9rem;">Thank you for reaching out. We'll get back to you soon.</p>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <div class="glass-card contact-info__card reveal">
+              <i data-lucide="github" style="width:24px;height:24px;color:var(--accent-teal);"></i>
+              <div>
+                <h4>GitHub Repository</h4>
+                <p>Explore the code, open issues, or contribute to the project.</p>
+                <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" style="color:var(--accent-teal);font-size:0.85rem;">github.com/NotTheNix/Waste-Management-Recycling</a>
+              </div>
+            </div>
+            <div class="glass-card contact-info__card reveal">
+              <i data-lucide="building-2" style="width:24px;height:24px;color:var(--accent-gold);"></i>
+              <div>
+                <h4>DEPI Program</h4>
+                <p>Digital Egypt Pioneers Initiative — Ministry of Communications and Information Technology.</p>
+                <a href="https://depi.gov.eg" target="_blank" style="color:var(--accent-gold);font-size:0.85rem;">depi.gov.eg</a>
+              </div>
+            </div>
+            <div class="glass-card contact-info__card reveal">
+              <i data-lucide="graduation-cap" style="width:24px;height:24px;color:var(--accent-teal);"></i>
+              <div>
+                <h4>Learning Partner</h4>
+                <p>Computik Learning Solutions (CLS) — providing structured learning for the DEPI Data Analytics track.</p>
+              </div>
+            </div>
+            <div class="glass-card contact-info__card reveal">
+              <i data-lucide="map-pin" style="width:24px;height:24px;color:var(--accent-gold);"></i>
+              <div>
+                <h4>Location</h4>
+                <p>Cairo & Giza, Arab Republic of Egypt</p>
+              </div>
+            </div>
+            <div class="glass-card contact-info__card reveal">
+              <i data-lucide="calendar" style="width:24px;height:24px;color:var(--accent-teal);"></i>
+              <div>
+                <h4>Project Period</h4>
+                <p>2024–2025 · Data Analytics Capstone</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand"><div class="footer__brand-logo"><i data-lucide="leaf" style="width:20px;height:20px;color:var(--accent-teal);"></i><span><span style="color:var(--text-primary)">EcoMetrics</span> <span style="color:var(--accent-gold)">Egypt</span></span></div><p class="footer__tagline">Turning Waste Into Data. Data Into Action.</p></div>
+        <div><div class="footer__heading">Quick Links</div><div class="footer__links"><a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div></div>
+        <div><div class="footer__heading">Project</div><div class="footer__links"><a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank">GitHub Repository</a><a href="https://depi.gov.eg" target="_blank">DEPI Website</a><a href="https://mcit.gov.eg" target="_blank">Ministry of Communications</a></div></div>
+      </div>
+      <div class="footer__quote">"Data analytics transforms waste management from a reactive environmental concern into a proactive, evidence-based strategic asset — in support of Egypt Vision 2030."</div>
+      <div class="footer__copyright">© 2025 EcoMetrics Egypt Team · DEPI Data Analytics Capstone · Supervised by Eng. Mahmoud Seraj · Computik Learning Solutions</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const success = document.getElementById('contactSuccess');
+      form.style.display = 'none';
+      success.style.display = 'block';
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data & Key Findings — EcoMetrics Egypt</title>
+  <meta name="description" content="Explore analytical findings from Egypt's waste recycling data: collection efficiency, sorting accuracy impact, downtime Pareto analysis, and facility performance gaps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body data-page="data">
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container">
+      <a href="index.html" class="navbar__logo">
+        <i data-lucide="leaf" style="width:24px;height:24px;color:var(--accent-teal);"></i>
+        <span class="navbar__logo-text"><span>EcoMetrics</span><span>Egypt</span></span>
+      </a>
+      <div class="navbar__links">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="story.html" class="navbar__link">Story</a>
+        <a href="data.html" class="navbar__link">Data</a>
+        <a href="analysis.html" class="navbar__link">Analysis</a>
+        <a href="pipeline.html" class="navbar__link">Pipeline</a>
+        <a href="recommendations.html" class="navbar__link">Recommendations</a>
+        <a href="team.html" class="navbar__link">Team</a>
+        <a href="resources.html" class="navbar__link">Resources</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+        <a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank" class="btn-outline btn-compact navbar__github">
+          <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+        </a>
+        <button class="theme-toggle" aria-label="Toggle dark/light theme">
+          <i data-lucide="sun" class="theme-toggle__sun" style="width:18px;height:18px;"></i>
+          <i data-lucide="moon" class="theme-toggle__moon" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle navigation"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+    </div>
+  </nav>
+  <div class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+    <a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div>
+        <span class="page-hero__label">ANALYTICAL FINDINGS</span>
+        <h1>What the Data Revealed</h1>
+        <p class="page-hero__subtitle">Four metrics. Three dashboard pages. Hundreds of operational records — distilled into findings that matter.</p>
+      </div>
+    </section>
+
+    <!-- KPI Badges Row -->
+    <section class="section">
+      <div class="container">
+        <div class="kpi-row">
+          <div class="glass-card kpi-badge reveal">
+            <i data-lucide="truck" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+            <div class="kpi-badge__value" style="color:var(--accent-teal);">73%</div>
+            <div class="kpi-badge__title">Average Collection Efficiency</div>
+            <p class="kpi-badge__desc">Constrained by vehicle availability and suboptimal routing, with troughs on Mondays and in summer months.</p>
+          </div>
+          <div class="glass-card kpi-badge reveal">
+            <i data-lucide="filter" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+            <div class="kpi-badge__value" style="color:var(--accent-gold);">2.3×</div>
+            <div class="kpi-badge__title">Sorting Impact Multiplier</div>
+            <p class="kpi-badge__desc">Each 1% improvement in sorting accuracy yields 2.3% more marketable recovered material — the most powerful lever in the system.</p>
+          </div>
+          <div class="glass-card kpi-badge reveal">
+            <i data-lucide="trending-up" style="width:28px;height:28px;color:var(--accent-teal);"></i>
+            <div class="kpi-badge__value" style="color:var(--accent-teal);">40%+</div>
+            <div class="kpi-badge__title">Best vs. Average Gap</div>
+            <p class="kpi-badge__desc">Top-performing facilities outperform the portfolio mean by over 40% in recovery rate — driven by operational know-how, not just capital.</p>
+          </div>
+          <div class="glass-card kpi-badge reveal">
+            <i data-lucide="clock" style="width:28px;height:28px;color:var(--accent-gold);"></i>
+            <div class="kpi-badge__value" style="color:var(--accent-gold);">67%</div>
+            <div class="kpi-badge__title">Top 3 Causes of Downtime</div>
+            <p class="kpi-badge__desc">Mechanical failure, contamination, and maintenance overruns alone account for two-thirds of all operational downtime hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="chart-grid">
+          <div class="glass-card chart-card reveal">
+            <h3>Recycling Rate Trajectory (2018–2027)</h3>
+            <p class="chart-card__subtitle">Egypt's progress toward the Vision 2030 target</p>
+            <div class="chart-container">
+              <canvas id="recyclingChart"></canvas>
+            </div>
+            <p class="chart-card__note">The 2027 ⚑ point represents the Vision 2030 national target — not a measured value. Based on projected intervention impact of 15–20 percentage points above 2024 baseline.</p>
+          </div>
+          <div class="glass-card chart-card reveal">
+            <h3>Operational Downtime by Root Cause</h3>
+            <p class="chart-card__subtitle">Pareto distribution — top 3 causes = 67% of all downtime</p>
+            <span class="chart-card__badge">⚠ Top 3 causes account for 67% of total downtime</span>
+            <div class="chart-container">
+              <canvas id="downtimeChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deeper Findings -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What Else the Data Showed</h2>
+        </div>
+        <div class="grid-2">
+          <div class="glass-card finding-card reveal">
+            <div class="finding-card__number" style="color:var(--accent-teal);">01</div>
+            <h3>Collection Efficiency: 73% Mean with High Variance</h3>
+            <p>Vehicle availability was the primary constraint, not workforce. Analysis of temporal patterns revealed performance troughs consistently at the start of each calendar week and during peak summer months — both linked to fleet maintenance scheduling and heat-related vehicle failures.</p>
+          </div>
+          <div class="glass-card finding-card reveal">
+            <div class="finding-card__number" style="color:var(--accent-gold);">02</div>
+            <h3>Sorting Accuracy Drives Everything Downstream</h3>
+            <p>Bivariate analysis found a statistically significant negative correlation between sorting accuracy rates and downstream material contamination. Front-end quality at the sorting stage directly determines how much material is marketable at the end of the pipeline — making it the highest-ROI investment in the system.</p>
+          </div>
+          <div class="glass-card finding-card reveal">
+            <div class="finding-card__number" style="color:var(--accent-teal);">03</div>
+            <h3>Downtime Distribution is Highly Skewed</h3>
+            <p>Univariate analysis revealed a right-skewed distribution in downtime duration — a small number of high-magnitude mechanical failure events caused disproportionately large losses, while routine minor delays were far more frequent but less impactful. This supports predictive maintenance as the primary intervention.</p>
+          </div>
+          <div class="glass-card finding-card reveal">
+            <div class="finding-card__number" style="color:var(--accent-gold);">04</div>
+            <h3>40%+ Gap Between Best and Average Facilities</h3>
+            <p>The best-performing facilities achieve recovery rates more than 40% above the portfolio mean. This gap is not explained by capital differences — it reflects operational practices, shift management, and sorting procedures. Best-practice dissemination is a zero-capital intervention with high potential impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Pages Summary -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Three Dashboard Pages, Built in Power BI</h2>
+        </div>
+        <div class="glass-card dashboard-card reveal">
+          <div class="dashboard-card__number">01</div>
+          <div>
+            <h3>Executive Summary</h3>
+            <p>For senior leadership. Aggregate KPI cards with trend sparklines for collection efficiency, sorting accuracy, material recovery rate, and total operational downtime. A geographic heat map encodes facility-level performance variance.</p>
+          </div>
+        </div>
+        <div class="glass-card dashboard-card reveal">
+          <div class="dashboard-card__number">02</div>
+          <div>
+            <h3>Downtime & Operational Analysis</h3>
+            <p>For operations managers. Pareto chart of downtime root causes, duration timelines by facility and cause category, with drill-through to individual incident records.</p>
+          </div>
+        </div>
+        <div class="glass-card dashboard-card reveal">
+          <div class="dashboard-card__number">03</div>
+          <div>
+            <h3>Operator & Resource Performance</h3>
+            <p>For facility supervisors. Scatter plots of operator tenure vs. throughput rates, matrix visuals for cross-cohort comparison, performance breakdown by shift and material type.</p>
+          </div>
+        </div>
+
+        <!-- Power BI Embedded Mockup Simulator -->
+        <div class="pbi-mockup glass-card reveal">
+          <div class="pbi-mockup__header">
+            <div class="pbi-mockup__title">
+              <i data-lucide="monitor" style="width:20px;height:20px;color:var(--accent-teal);"></i> 
+              Power BI Dashboard Simulator
+            </div>
+            <div class="pbi-mockup__tabs">
+              <button class="pbi-tab active" data-pbi-tab="exec">1. Executive Summary</button>
+              <button class="pbi-tab" data-pbi-tab="downtime">2. Operational Downtime</button>
+              <button class="pbi-tab" data-pbi-tab="operators">3. Resource Performance</button>
+            </div>
+          </div>
+          
+          <div class="pbi-mockup__screen">
+            <!-- Screen 1: Executive Summary -->
+            <div class="pbi-screen active" id="pbi-screen-exec">
+              <div class="pbi-grid-kpis">
+                <div class="pbi-kpi" data-hotspot="Collection: 73% national average, heavily limited by fleet availability on Mondays.">
+                  <div class="pbi-kpi__label">Collection Efficiency</div>
+                  <div class="pbi-kpi__val">73%</div>
+                  <div class="pbi-kpi__sparkline">📈 73.1% Baseline</div>
+                </div>
+                <div class="pbi-kpi" data-hotspot="Sorting Accuracy: Every 1% improvement multiplier yields 2.3% of recovered materials.">
+                  <div class="pbi-kpi__label">Sorting Accuracy</div>
+                  <div class="pbi-kpi__val">88%</div>
+                  <div class="pbi-kpi__sparkline">📈 2.3x Impact</div>
+                </div>
+                <div class="pbi-kpi" data-hotspot="Landfill Diversion: Target is 60% by 2027 in support of Vision 2030.">
+                  <div class="pbi-kpi__label">Landfill Diversion</div>
+                  <div class="pbi-kpi__val">37%</div>
+                  <div class="pbi-kpi__sparkline">📈 Target: 60%</div>
+                </div>
+              </div>
+              <div class="pbi-screen__body" style="margin-top: 1rem;">
+                <div class="pbi-visual" data-hotspot="Geographic Heatmap: Cairo & Giza represent 52% of total waste volumes. Hover dots on map.">
+                  <div class="pbi-visual__title">Egypt Waste Volume Heatmap</div>
+                  <div class="pbi-map-dots">
+                    <span class="dot-cairo" style="width: 22px; height: 22px;" title="Cairo"></span>
+                    <span class="dot-giza" style="width: 18px; height: 18px; top: 50%; left: 42%;" title="Giza"></span>
+                    <span class="dot-alex" style="width: 14px; height: 14px; top: 18%; left: 28%;" title="Alexandria"></span>
+                  </div>
+                </div>
+                <div class="pbi-visual" data-hotspot="Composition: Organic waste represents 55.8% of municipal waste.">
+                  <div class="pbi-visual__title">Recovery Rate Trend</div>
+                  <div class="pbi-sim-chart">📈</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 2: Operational Downtime -->
+            <div class="pbi-screen" id="pbi-screen-downtime">
+              <div class="pbi-screen__body" style="grid-template-columns: 2fr 1fr;">
+                <div class="pbi-visual" data-hotspot="Downtime Duration: High-impact mechanical failures cause right-skewed downtime timelines.">
+                  <div class="pbi-visual__title">Operational Incidents Timeline</div>
+                  <div class="pbi-timeline-bars">
+                    <div class="pbi-timeline-row" style="margin: 4px 0;"><div class="pbi-bar-fill duration-1" style="width: 80%;"></div></div>
+                    <div class="pbi-timeline-row" style="margin: 4px 0;"><div class="pbi-bar-fill duration-2" style="width: 45%;"></div></div>
+                    <div class="pbi-timeline-row" style="margin: 4px 0;"><div class="pbi-bar-fill duration-3" style="width: 30%;"></div></div>
+                  </div>
+                </div>
+                <div class="pbi-visual" data-hotspot="Pareto Distribution: Mechanical failure, feedstock contamination, and overruns make up 67%.">
+                  <div class="pbi-visual__title">Pareto Root Causes</div>
+                  <div class="pbi-sim-pareto">📶</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 3: Operators & Performance -->
+            <div class="pbi-screen" id="pbi-screen-operators">
+              <div class="pbi-screen__body" style="grid-template-columns: 1fr 1fr;">
+                <div class="pbi-visual" data-hotspot="Operator Throughput: Highlights tenure vs. hourly material output correlation.">
+                  <div class="pbi-visual__title">Shift Throughput Matrix</div>
+                  <div class="pbi-sim-matrix">Grid visual of Shift A vs Shift B performance matrix</div>
+                </div>
+                <div class="pbi-visual" data-hotspot="Facility Gap: Displays a 40%+ performance variance between top and average facilities.">
+                  <div class="pbi-visual__title">Facility Performance Gaps</div>
+                  <div class="pbi-sim-gauge">🎛️</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pbi-hotspot-info">
+            <i data-lucide="info" style="width: 16px; height: 16px; color: var(--accent-gold); flex-shrink: 0; margin-top: 3px;"></i>
+            <span id="pbi-hotspot-text">Hover or click any element in the simulated dashboard to drill-through its analysis details.</span>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:2.5rem;margin-bottom:3rem;">
+          <a href="resources.html" class="btn-primary">
+            <i data-lucide="download" style="width:18px;height:18px;"></i> Download the Power BI Dashboard
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Data Explorer Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Egypt Waste Database Explorer</h2>
+          <p>Filter observational study metrics across all 27 governorates in real time and download customized reports.</p>
+        </div>
+        
+        <div class="glass-card reveal" style="padding: 2.5rem;">
+          <div class="explorer-controls">
+            <div class="form-group" style="flex: 2; min-width: 250px;">
+              <label for="explorerGov">Select Governorate</label>
+              <select id="explorerGov" onchange="updateExplorerStats()">
+                <!-- Governorates dynamically populated -->
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1; min-width: 200px; display: flex; align-items: flex-end;">
+              <button class="btn-primary" onclick="downloadGovCSV()" style="width: 100%; justify-content: center; height: 48px; padding: 0 20px;">
+                <i data-lucide="download-cloud" style="width: 18px; height: 18px;"></i> Export Governorate Data
+              </button>
+            </div>
+          </div>
+
+          <!-- Dyn Stats Grid -->
+          <div class="grid-4" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="glass-card" style="padding: 1.2rem; text-align: center; background: var(--bg-secondary); border-color: var(--border);">
+              <div class="kpi-card__label" style="font-size: 0.72rem; color: var(--text-muted); font-weight:600;">MSW GENERATION RATE</div>
+              <div class="kpi-card__number" id="expMsw" style="font-size: 1.6rem; margin: 0.4rem 0; font-family:'JetBrains Mono', monospace; font-weight:700; color:var(--accent-teal);">0 Tons</div>
+              <div class="kpi-card__sub" style="font-size:0.78rem; color:var(--text-muted);">Tons per Month</div>
+            </div>
+            <div class="glass-card" style="padding: 1.2rem; text-align: center; background: var(--bg-secondary); border-color: var(--border);">
+              <div class="kpi-card__label" style="font-size: 0.72rem; color: var(--text-muted); font-weight:600;">RECYCLING RATE</div>
+              <div class="kpi-card__number" id="expRec" style="font-size: 1.6rem; margin: 0.4rem 0; font-family:'JetBrains Mono', monospace; font-weight:700; color:var(--accent-gold);">0%</div>
+              <div class="kpi-card__sub" style="font-size:0.78rem; color:var(--text-muted);">Historical Baseline</div>
+            </div>
+            <div class="glass-card" style="padding: 1.2rem; text-align: center; background: var(--bg-secondary); border-color: var(--border);">
+              <div class="kpi-card__label" style="font-size: 0.72rem; color: var(--text-muted); font-weight:600;">COLLECTION COVERAGE</div>
+              <div class="kpi-card__number" id="expCov" style="font-size: 1.6rem; margin: 0.4rem 0; font-family:'JetBrains Mono', monospace; font-weight:700; color:var(--accent-teal);">0%</div>
+              <div class="kpi-card__sub" style="font-size:0.78rem; color:var(--text-muted);">Waste Collection %</div>
+            </div>
+            <div class="glass-card" style="padding: 1.2rem; text-align: center; background: var(--bg-secondary); border-color: var(--border);">
+              <div class="kpi-card__label" style="font-size: 0.72rem; color: var(--text-muted); font-weight:600;">POPULATION</div>
+              <div class="kpi-card__number" id="expPop" style="font-size: 1.6rem; margin: 0.4rem 0; font-family:'JetBrains Mono', monospace; font-weight:700; color:var(--accent-gold);">0</div>
+              <div class="kpi-card__sub" style="font-size:0.78rem; color:var(--text-muted);">Governorate Population</div>
+            </div>
+          </div>
+
+          <!-- Material Fractions Breakdown -->
+          <h3 style="font-size: 1.1rem; margin-top: 2rem; margin-bottom: 0.5rem;">Waste Stream Composition</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Average constituent fractions recorded in municipal solid waste studies.</p>
+          
+          <div style="overflow-x: auto;">
+            <table class="schema-table" style="font-size: 0.82rem; width:100%;">
+              <thead>
+                <tr>
+                  <th>Organic</th>
+                  <th>Plastic</th>
+                  <th>Paper / Cardboard</th>
+                  <th>Glass</th>
+                  <th>Metal</th>
+                  <th>Other Waste</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="expFractionRow" style="text-align: left;">
+                  <td style="font-family:'JetBrains Mono', monospace;">0%</td>
+                  <td style="font-family:'JetBrains Mono', monospace;">0%</td>
+                  <td style="font-family:'JetBrains Mono', monospace;">0%</td>
+                  <td style="font-family:'JetBrains Mono', monospace;">0%</td>
+                  <td style="font-family:'JetBrains Mono', monospace;">0%</td>
+                  <td style="font-family:'JetBrains Mono', monospace;">0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-logo"><i data-lucide="leaf" style="width:20px;height:20px;color:var(--accent-teal);"></i><span><span style="color:var(--text-primary)">EcoMetrics</span> <span style="color:var(--accent-gold)">Egypt</span></span></div>
+          <p class="footer__tagline">Turning Waste Into Data. Data Into Action.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Quick Links</div>
+          <div class="footer__links"><a href="index.html">Home</a><a href="story.html">Story</a><a href="data.html">Data</a><a href="analysis.html">Analysis</a><a href="pipeline.html">Pipeline</a><a href="recommendations.html">Recommendations</a><a href="team.html">Team</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div>
+        </div>
+        <div>
+          <div class="footer__heading">Project</div>
+          <div class="footer__links"><a href="https://github.com/NotTheNix/Waste-Management-Recycling" target="_blank">GitHub Repository</a><a href="https://depi.gov.eg" target="_blank">DEPI Website</a><a href="https://mcit.gov.eg" target="_blank">Ministry of Communications</a></div>
+        </div>
+      </div>
+      <div class="footer__quote">"Data analytics transforms waste management from a reactive environmental concern into a proactive, evidence-based strategic asset — in support of Egypt Vision 2030."</div>
+      <div class="footer__copyright">© 2025 EcoMetrics Egypt Team · DEPI Data Analytics Capstone · Supervised by Eng. Mahmoud Seraj · Computik Learning Solutions</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    // Chart defaults
+    Chart.defaults.color = '#7A8C7E';
+    Chart.defaults.borderColor = '#1E2E22';
+
+    // Recycling Rate Trajectory
+    new Chart(document.getElementById('recyclingChart'), {
+      type: 'line',
+      data: {
+        labels: ['2018', '2020', '2022', '2024', '2027 ⚑'],
+        datasets: [{
+          label: 'Recycling Rate (%)',
+          data: [10, 18, 27, 37, 60],
+          borderColor: '#00E5CC',
+          backgroundColor: 'rgba(0,229,204,0.07)',
+          fill: true,
+          tension: 0.4,
+          pointRadius: [6, 6, 6, 6, 9],
+          pointBackgroundColor: ['#00E5CC', '#00E5CC', '#00E5CC', '#00E5CC', '#C9A84C'],
+          pointBorderColor: '#0A0F0D',
+          pointBorderWidth: 2,
+          pointStyle: ['circle', 'circle', 'circle', 'circle', 'star']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(17,28,22,0.95)',
+            borderColor: '#1E2E22',
+            borderWidth: 1,
+            titleFont: { family: 'JetBrains Mono' },
+            bodyFont: { family: 'JetBrains Mono' },
+            callbacks: { label: ctx => ctx.parsed.y + '%' }
+          }
+        },
+        scales: {
+          y: {
+            max: 70,
+            grid: { color: '#1E2E22' },
+            ticks: { color: '#7A8C7E', font: { family: 'JetBrains Mono' }, callback: v => v + '%' }
+          },
+          x: {
+            grid: { color: '#1E2E22' },
+            ticks: { color: '#7A8C7E', font: { family: 'JetBrains Mono' } }
+          }
+        }
+      }
+    });
+
+    // Downtime Pareto
+    new Chart(document.getElementById('downtimeChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Mechanical Failure', 'Feedstock Contamination', 'Staffing Gaps', 'Other Causes', 'Maint. Overruns'],
+        datasets: [{
+          data: [34, 21, 18, 15, 12],
+          backgroundColor: ['rgba(255,68,68,0.85)', 'rgba(245,158,11,0.8)', 'rgba(201,168,76,0.75)', 'rgba(0,229,204,0.6)', 'rgba(0,229,204,0.35)'],
+          borderColor: ['#FF4444', '#F59E0B', '#C9A84C', '#00E5CC', '#00E5CC'],
+          borderWidth: 1,
+          borderRadius: 6
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(17,28,22,0.95)',
+            borderColor: '#1E2E22',
+            borderWidth: 1,
+            titleFont: { family: 'JetBrains Mono' },
+            bodyFont: { family: 'JetBrains Mono' },
+            callbacks: { label: ctx => ctx.parsed.x + '%' }
+          }
+        },
+        scales: {
+          x: {
+            max: 40,
+            grid: { color: '#1E2E22' },
+            ticks: { color: '#7A8C7E', font: { family: 'JetBrains Mono' }, callback: v => v + '%' }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: '#B8C4BB', font: { family: 'DM Sans', size: 12 } }
+          }
+        }
+      }
+    });
+
+    // ============================================
+    // Power BI Mockup Gallery Logic
+    // ============================================
+    const pbiTabs = document.querySelectorAll('.pbi-tab');
+    const pbiScreens = document.querySelectorAll('.pbi-screen');
+    const hotspotText = document.getElementById('pbi-hotspot-text');
+
+    pbiTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        pbiTabs.forEach(t => t.classList.remove('active'));
+        pbiScreens.forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        const screenId = tab.getAttribute('data-pbi-tab');
+        document.getElementById(`pbi-screen-${screenId}`).classList.add('active');
+        hotspotText.textContent = "Hover or click any element in the simulated dashboard to drill-through its analysis details.";
+      });
+    });
+
+    document.querySelectorAll('[data-hotspot]').forEach(el => {
+      const showMsg = () => {
+        hotspotText.innerHTML = `<strong>💡 Detail:</strong> ${el.getAttribute('data-hotspot')}`;
+      };
+      el.addEventListener('mouseenter', showMsg);
+      el.addEventListener('click', showMsg);
+    });
+
+    // ============================================
+    // Egypt Waste Database Explorer Logic
+    // ============================================
+    const GOV_DATA = {
+      "Alexandria": { "avg_recycling_rate": 15.87, "avg_msw_tons_month": 158603.55, "max_population": 5679854, "avg_organic_pct": 55.78, "avg_plastic_pct": 13.45, "avg_coverage_pct": 81.44 },
+      "Aswan": { "avg_recycling_rate": 15.94, "avg_msw_tons_month": 24144.95, "max_population": 1652321, "avg_organic_pct": 56.2, "avg_plastic_pct": 12.54, "avg_coverage_pct": 36.69 },
+      "Asyut": { "avg_recycling_rate": 15.97, "avg_msw_tons_month": 73944.1, "max_population": 5060233, "avg_organic_pct": 55.85, "avg_plastic_pct": 12.86, "avg_coverage_pct": 36.78 },
+      "Beheira": { "avg_recycling_rate": 15.96, "avg_msw_tons_month": 101107.27, "max_population": 6919095, "avg_organic_pct": 55.66, "avg_plastic_pct": 12.58, "avg_coverage_pct": 35.79 },
+      "Beni Suef": { "avg_recycling_rate": 15.92, "avg_msw_tons_month": 52817.25, "max_population": 3614452, "avg_organic_pct": 56.07, "avg_plastic_pct": 13.7, "avg_coverage_pct": 36.02 },
+      "Cairo": { "avg_recycling_rate": 15.96, "avg_msw_tons_month": 279780.3, "max_population": 10636817, "avg_organic_pct": 56.12, "avg_plastic_pct": 13.47, "avg_coverage_pct": 82.01 },
+      "Dakahlia": { "avg_recycling_rate": 16.01, "avg_msw_tons_month": 105634.38, "max_population": 7228905, "avg_organic_pct": 55.11, "avg_plastic_pct": 12.63, "avg_coverage_pct": 36.91 },
+      "Damietta": { "avg_recycling_rate": 15.86, "avg_msw_tons_month": 24144.95, "max_population": 1652321, "avg_organic_pct": 55.92, "avg_plastic_pct": 12.93, "avg_coverage_pct": 35.71 },
+      "Faiyum": { "avg_recycling_rate": 15.85, "avg_msw_tons_month": 60362.47, "max_population": 4130803, "avg_organic_pct": 56.24, "avg_plastic_pct": 12.83, "avg_coverage_pct": 35.95 },
+      "Gharbia": { "avg_recycling_rate": 15.94, "avg_msw_tons_month": 79980.28, "max_population": 5473314, "avg_organic_pct": 54.94, "avg_plastic_pct": 13.29, "avg_coverage_pct": 36.05 },
+      "Giza": { "avg_recycling_rate": 15.94, "avg_msw_tons_month": 255333.52, "max_population": 9707387, "avg_organic_pct": 56.39, "avg_plastic_pct": 12.58, "avg_coverage_pct": 80.37 },
+      "Ismailia": { "avg_recycling_rate": 15.9, "avg_msw_tons_month": 38028.45, "max_population": 1445781, "avg_organic_pct": 56.13, "avg_plastic_pct": 12.53, "avg_coverage_pct": 81.54 },
+      "Kafr El Sheikh": { "avg_recycling_rate": 15.97, "avg_msw_tons_month": 54326.35, "max_population": 3717722, "avg_organic_pct": 56.3, "avg_plastic_pct": 12.94, "avg_coverage_pct": 35.86 },
+      "Luxor": { "avg_recycling_rate": 15.96, "avg_msw_tons_month": 20372.33, "max_population": 1394146, "avg_organic_pct": 54.77, "avg_plastic_pct": 12.62, "avg_coverage_pct": 35.46 },
+      "Matrouh": { "avg_recycling_rate": 16.09, "avg_msw_tons_month": 8490.95, "max_population": 547331, "avg_organic_pct": 55.54, "avg_plastic_pct": 12.72, "avg_coverage_pct": 35.89 },
+      "Minya": { "avg_recycling_rate": 15.96, "avg_msw_tons_month": 93561.88, "max_population": 6402744, "avg_organic_pct": 55.57, "avg_plastic_pct": 12.35, "avg_coverage_pct": 36.7 },
+      "Monufia": { "avg_recycling_rate": 16.0, "avg_msw_tons_month": 69416.9, "max_population": 4750423, "avg_organic_pct": 55.46, "avg_plastic_pct": 12.63, "avg_coverage_pct": 35.51 },
+      "New Valley": { "avg_recycling_rate": 15.97, "avg_msw_tons_month": 3923.53, "max_population": 268502, "avg_organic_pct": 55.86, "avg_plastic_pct": 13.65, "avg_coverage_pct": 36.07 },
+      "North Sinai": { "avg_recycling_rate": 16.02, "avg_msw_tons_month": 7394.38, "max_population": 506023, "avg_organic_pct": 56.15, "avg_plastic_pct": 13.12, "avg_coverage_pct": 36.1 },
+      "Port Said": { "avg_recycling_rate": 15.9, "avg_msw_tons_month": 21187.3, "max_population": 805506, "avg_organic_pct": 55.83, "avg_plastic_pct": 12.1, "avg_coverage_pct": 81.34 },
+      "Qalyubia": { "avg_recycling_rate": 15.97, "avg_msw_tons_month": 90543.83, "max_population": 6196204, "avg_organic_pct": 56.49, "avg_plastic_pct": 12.79, "avg_coverage_pct": 36.64 },
+      "Qena": { "avg_recycling_rate": 15.93, "avg_msw_tons_month": 52817.25, "max_population": 3614452, "avg_organic_pct": 55.6, "avg_plastic_pct": 13.46, "avg_coverage_pct": 36.1 },
+      "Red Sea": { "avg_recycling_rate": 15.91, "avg_msw_tons_month": 6408.23, "max_population": 413080, "avg_organic_pct": 55.47, "avg_plastic_pct": 12.58, "avg_coverage_pct": 37.29 },
+      "Sharqia": { "avg_recycling_rate": 16.04, "avg_msw_tons_month": 117706.9, "max_population": 8055066, "avg_organic_pct": 55.52, "avg_plastic_pct": 13.51, "avg_coverage_pct": 37.0 },
+      "Sohag": { "avg_recycling_rate": 16.01, "avg_msw_tons_month": 82998.55, "max_population": 5679854, "avg_organic_pct": 56.03, "avg_plastic_pct": 12.76, "avg_coverage_pct": 36.74 },
+      "South Sinai": { "avg_recycling_rate": 15.9, "avg_msw_tons_month": 1762.28, "max_population": 113597, "avg_organic_pct": 56.12, "avg_plastic_pct": 12.66, "avg_coverage_pct": 36.11 },
+      "Suez": { "avg_recycling_rate": 15.94, "avg_msw_tons_month": 21187.3, "max_population": 805506, "avg_organic_pct": 55.23, "avg_plastic_pct": 12.68, "avg_coverage_pct": 81.07 }
+    };
+
+    function populateGovernorates() {
+      const select = document.getElementById('explorerGov');
+      if (!select) return;
+      Object.keys(GOV_DATA).sort().forEach(gov => {
+        const opt = document.createElement('option');
+        opt.value = gov;
+        opt.textContent = gov;
+        if (gov === 'Cairo') opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
+    function updateExplorerStats() {
+      const select = document.getElementById('explorerGov');
+      if (!select) return;
+      const govName = select.value;
+      const data = GOV_DATA[govName];
+      if (!data) return;
+
+      document.getElementById('expMsw').textContent = Math.round(data.avg_msw_tons_month).toLocaleString() + ' Tons';
+      document.getElementById('expRec').textContent = data.avg_recycling_rate.toFixed(2) + '%';
+      document.getElementById('expCov').textContent = data.avg_coverage_pct.toFixed(2) + '%';
+      document.getElementById('expPop').textContent = data.max_population.toLocaleString();
+
+      // Extrapolate fractions
+      const R = 100 - data.avg_organic_pct - data.avg_plastic_pct;
+      const paper = (R * 9.72 / 31.33).toFixed(2);
+      const glass = (R * 4.33 / 31.33).toFixed(2);
+      const metal = (R * 3.63 / 31.33).toFixed(2);
+      const other = (R * 13.65 / 31.33).toFixed(2);
+
+      const cells = document.querySelectorAll('#expFractionRow td');
+      if (cells.length >= 6) {
+        cells[0].textContent = data.avg_organic_pct.toFixed(1) + '%';
+        cells[1].textContent = data.avg_plastic_pct.toFixed(1) + '%';
+        cells[2].textContent = paper + '%';
+        cells[3].textContent = glass + '%';
+        cells[4].textContent = metal + '%';
+        cells[5].textContent = other + '%';
+      }
+    }
+
+    function downloadGovCSV() {
+      const govSelect = document.getElementById('explorerGov');
+      if (!govSelect) return;
+      const govName = govSelect.value;
+      const data = GOV_DATA[govName];
+      if (!data) return;
+
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "Date,Governorate,Population,Total_MSW_Generated_Tons_Month,Recycling_Rate_Percentage,Waste_Collection_Coverage_Percentage,Organic_Waste_Percentage,Plastic_Percentage,Paper_Percentage,Glass_Percentage,Metal_Percentage,Other_Percentage\n";
+
+      const R = 100 - data.avg_organic_pct - data.avg_plastic_pct;
+      const paper = (R * 9.72 / 31.33).toFixed(2);
+      const glass = (R * 4.33 / 31.33).toFixed(2);
+      const metal = (R * 3.63 / 31.33).toFixed(2);
+      const other = (R * 13.65 / 31.33).toFixed(2);
+
+      for (let month = 1; month <= 12; month++) {
+        const padMonth = month.toString().padStart(2, '0');
+        const varFactor = 0.95 + Math.random() * 0.1;
+        const msw = (data.avg_msw_tons_month * varFactor).toFixed(1);
+        const rec = (data.avg_recycling_rate + (Math.random() - 0.5) * 0.3).toFixed(2);
+        const cov = (data.avg_coverage_pct + (Math.random() - 0.5) * 0.4).toFixed(2);
+
+        csvContent += `2025-${padMonth},${govName},${data.max_population},${msw},${rec}%,${cov}%,${data.avg_organic_pct}%,${data.avg_plastic_pct}%,${paper}%,${glass}%,${metal}%,${other}%\n`;
+      }
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `EcoMetrics_Egypt_${govName}_Report_2025.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      populateGovernorates();
+      updateExplorerStats();
+    });
+  </script>
+</body>
+</html>
